@@ -8,6 +8,12 @@ Route::get('/', function () {
     return view('index', compact('skills'));
 });
 
+Route::redirect('/portfolio', '/');
+
+Route::get('/resume', function () {
+    return view('resume');
+});
+
 Route::get('/about', function () {
     return "Coming soon!";
 })->name('about');

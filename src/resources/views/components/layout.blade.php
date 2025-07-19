@@ -16,13 +16,12 @@
 
 <body class="h-full bg-stone-800 text-white">
     <div class="min-h-full">
-        {{-- example home.blade.php --}}
         <x-boxed-nav>
             <x-boxed-nav-link href="#about-me">About</x-boxed-nav-link>
             <x-boxed-nav-link href="#experience">Skills</x-boxed-nav-link>
             <x-boxed-nav-link href="#employment">Employment</x-boxed-nav-link>
             <x-boxed-nav-link href="#education">Education</x-boxed-nav-link>
-            <x-boxed-nav-link href="{{ route('about') }}">Resume</x-boxed-nav-link>
+            <x-boxed-nav-link href="/resume" target="_blank">Resume</x-boxed-nav-link>
         </x-boxed-nav>
 
         {{ $slot }}

@@ -1,7 +1,10 @@
-@props(['href', 'active' => false])
+@props([
+  'href', 'active' => false,
+  'target' => '_self'
+  ])
 
 <li>
-    <a href="{{ $href }}"
+    <a href="{{ $href }}" target="{{ $target }}"
         class="block w-full py-6 text-center whitespace-nowrap
           {{ $active ? 'bg-red-600 text-white' : 'text-stone-900 dark:text-stone-100' }}
           hover:bg-red-600 hover:text-white transition-colors">
