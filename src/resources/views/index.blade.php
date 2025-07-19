@@ -65,7 +65,7 @@
     <x-default-section id="experience" class="bg-stone-700" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
 
         @foreach (array_chunk($skills, 3) as $chunk)
-            <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-start text-2xl">
+            <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-stretch text-2xl">
                 @foreach ($chunk as $skill)
                     @include('partials.skills', $skill)
                 @endforeach
@@ -170,13 +170,13 @@
 
     <x-full-page-section id="education" h1="Education" class="bg-stone-700 pt-8" :quote='["Strive not to be a success, but rather to be of value.","Albert Einstein"]'>
         <article class="max-w-screen-lg mx-auto px-4 my-8 items-start text-lg flex flex-col md:flex-row gap-6">
-            <section class="flex-1">
+            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">Purdue University - Indianapolis, IN</h3>
                 <p class="text-sm text-stone-400">Electronics Engineering Technology<br>
                     <time class="text-xs text-stone-200" datetime="1997">1997</time> - <time class="text-xs text-stone-200" datetime="1998">1998</time>
                 </p>
             </section>
-            <section class="flex-1">
+            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">Purdue University North Central - Westville, IN</h3>
                 <p class="text-sm text-stone-400">Electronics Engineering Technology<br>
                     <time class="text-xs text-stone-200" datetime="1996">1996</time> - <time class="text-xs text-stone-200" datetime="1997">1997</time>
@@ -185,13 +185,13 @@
         </article>
 
         <article class="max-w-screen-lg mx-auto px-4 my-8 items-start text-lg flex flex-col md:flex-row gap-6">
-            <section class="flex-1">
+            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">A.K. Smith Career Center - Michigan City, IN</h3>
                 <p class="text-sm text-stone-400">Electronics Engineering Technology - Vocational Training<br>
                     <time class="text-xs text-stone-200" datetime="1992">1992</time> - <time class="text-xs text-stone-200" datetime="1996">1996</time>
                 </p>
             </section>
-            <section class="flex-1">
+            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">A.K. Smith Career Center - Michigan City, IN</h3>
                 <p class="text-sm text-stone-400">Residental Electrical - Vocational Training<br>
                     <time class="text-xs text-stone-200" datetime="1992">1992</time> - <time class="text-xs text-stone-200" datetime="1993">1993</time>
