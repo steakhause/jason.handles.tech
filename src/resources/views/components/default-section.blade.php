@@ -1,0 +1,39 @@
+@props([
+    'background' => null,
+    'class' => '',
+    'id' => '',
+    'h1'=> null,
+    'h2' => null,
+    'h3' => null,
+    'quote' => null
+])
+
+<section
+    {{ $attributes->merge([
+        'class' => "w-full mx-auto  pt-4 sm:pt-12 pb-12 $class",
+        'id' => $id
+    ]) }}
+    @if ($background) style="background-image: url('{{ $background }}')" @endif
+>
+@if($h1)
+    <h2 class="max-w-screen-lg mx-auto pt-4 mt-8 items-start text-red-500 font-arkitech text-3xl text-center">{{ $h1 }}</h2>
+@endif
+
+@if($h2)
+    <p class="text-1xl text-white-500 text-center">{{ $h2 }}</p>
+@endif
+
+@if($h3)
+    <p class="text-xs text-white-500 text-center">{{ $h3 }}</p>
+@endif
+
+<hr class="w-full border-red-500 border-t mt-8">
+
+@if(!empty($quote) && gettype($quote == 'array'))
+    <blockquote class="max-w-screen-lg mx-auto mt-8 text-center italic">
+        <p class="text-lg">"{{ $quote[0] }}"</p>
+        <footer>— <cite>{{ $quote[1] }}</cite></footer>
+    </blockquote>
+@endif
+    {{ $slot }}
+</section>

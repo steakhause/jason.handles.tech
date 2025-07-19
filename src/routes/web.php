@@ -1,0 +1,17 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkillsController;
+
+Route::get('/', function () {
+    $skills = SkillsController::data();
+    return view('index', compact('skills'));
+});
+
+Route::get('/about', function () {
+    return "Coming soon!";
+})->name('about');
+
+Route::get('/zoom', function () {
+    return redirect()->away(config('services.zoom.url'));
+})->name('zoom.redirect');
