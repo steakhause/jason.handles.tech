@@ -10,11 +10,12 @@
 
 <section
     {{ $attributes->merge([
-        'class' => "min-h-screen items-center justify-center px-4 bg-cover bg-center $class",
+        'class' => "h-[100dvh] relative items-center justify-center px-4 bg-cover bg-center $class",
         'id' => $id
     ]) }}
     @if ($background) style="background-image: url('{{ $background }}')" @endif
 >
+
 @if($h1)
     <h2 class="max-w-screen-lg mx-auto pt-4 mt-8 items-start text-red-500 font-arkitech text-3xl text-center">{{ $h1 }}</h2>
 @endif
@@ -33,8 +34,8 @@
 
 @if(!empty($quote) && gettype($quote == 'array'))
     <blockquote class="max-w-screen-lg mx-auto mt-8 text-center italic">
-        <p class="text-lg">"{{ $quote[0] }}"</p>
-        <footer>— <cite>{{ $quote[1] }}</cite></footer>
+        <p class="text-sm md:text-lg">"{{ $quote[0] }}"</p>
+        <footer class="text-xs md:text-base">— <cite>{{ $quote[1] }}</cite></footer>
     </blockquote>
 @endif
     {{ $slot }}

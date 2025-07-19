@@ -76,7 +76,7 @@
 
     <!--EMPLOYMENT HISTORY SECTION-->
 
-    <x-default-section id="employment" h1="Employment History">
+    <x-default-section id="employment" h1="Employment History" :quote='["The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.","Hellen Keller"]'>
         <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
             <article>
                 <header>
@@ -168,7 +168,7 @@
 
     <!-- EDUCATION SECTION -->
 
-    <x-full-page-section id="education" h1="Education" class="bg-stone-700 pt-8">
+    <x-full-page-section id="education" h1="Education" class="bg-stone-700 pt-8" :quote='["Strive not to be a success, but rather to be of value.","Albert Einstein"]'>
         <article class="max-w-screen-lg mx-auto px-4 my-8 items-start text-lg flex flex-col md:flex-row gap-6">
             <section class="flex-1">
                 <h3 class="text-lg">Purdue University - Indianapolis, IN</h3>
