@@ -10,7 +10,7 @@ services:
     ports:
       - "8001:8000" # Odd port to avoid conflicts with other containers.
     environment:
-      LARAVEL_SAIL: truemk
+      LARAVEL_SAIL: true
 
       # Optional Laravel SMTP/database envs
       # Values are pulled from the .env file
