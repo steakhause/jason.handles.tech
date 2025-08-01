@@ -5,8 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google_analytics.tracking_id') }}">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', '{{ config('services.google_analytics.tracking_id') }}');
+    </script>
+
+
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/app.css"></script>
+    <link rel="stylesheet" href="/css/app.css">
+    </script>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/css/fonts.css">
     <title>{{ $title ?? 'Welcome' }}</title>

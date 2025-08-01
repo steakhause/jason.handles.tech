@@ -21,3 +21,7 @@ Route::get('/about', function () {
 Route::get('/zoom', function () {
     return redirect()->away(config('services.zoom.url'));
 })->name('zoom.redirect');
+
+Route::get('/linkedin', function () {
+    return redirect()->away(config('services.linkedin.url'));
+})->name('linkedin.redirect');

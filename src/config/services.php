@@ -37,5 +37,11 @@ return [
     'zoom' => [
         'url' => env('ZOOM_MEETING_URL', 'https://zoom.us'),
     ],
+    'google_analytics' => [
+        'tracking_id' => env('GOOGLE_ANALYTICS_TRACKING_ID'),
+    ],
+    'linkedin' => [
+        'url' => env('LINKEDIN_URL', 'https://www.linkedin.com/in/your-profile'),
+    ]
 
 ];
