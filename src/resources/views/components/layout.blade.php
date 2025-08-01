@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    @env('production')
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google_analytics.tracking_id') }}">
     </script>
@@ -19,6 +20,7 @@
 
         gtag('config', '{{ config('services.google_analytics.tracking_id') }}');
     </script>
+    @endenv
 
 
 
