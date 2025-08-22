@@ -14,7 +14,7 @@
 
     {{-- Menu (starts hidden on mobile) --}}
     <ul id="boxed-nav-menu"
-        class="flex-col w-full md:w-28 bg-white dark:bg-stone-800 shadow-lg divide-y divide-stone-200 dark:divide-stone-700 transition-all duration-300 ease-in-out"
+        class="flex-col w-full md:w-28 bg-white shadow-lg divide-y divide-stone-200 transition-all duration-300 ease-in-out"
         style="display: none;">
 
 

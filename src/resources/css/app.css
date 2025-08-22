@@ -1,23 +1,59 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+	--chat--window--width: 400px;
+	--chat--window--height: 600px;
+    --chat--textarea--height: 100px;
+    --chat--spacing: 2rem;
+	--chat--message--bot--border: none;
 
+    --text-primary: theme('colors.stone.300');
+    --text-secondary: theme('colors.stone.500');
+    --bg-primary: theme('colors.stone.900');
+    --bg-secondary: theme('colors.stone.800');
+  }
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  .dark {
+    --color-primary: theme('colors.sky.400');
+    --color-primary-rgb: 56 189 248; /* sky-400 */
+  }
+
+  textarea:focus { @apply outline-none ring-0 ring-transparent ring-offset-0 border-transparent; }
 }
 
-@layer base {
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding:
-  }
+:root {
+	--chat--window--width: 400px;
+	--chat--window--height: 600px;
+    --chat--textarea--height: 100px;
+    --chat--spacing: 2rem;
+}
+.chat-header {
+  margin-bottom: 12px;
+}
+.chat-inputs, .chat-inputs textarea {
+    background-color: black;
+    border:none;
+}
+.chat-inputs {
+    display: flex;
+}
+
+.chat-inputs textarea {
+    flex-grow: 7;
+}
+
+.chat-message {
+  margin: 2em auto;
+}
+
+.chat-message-from-user {
+  text-align: right;
+  color: var(--text-secondary);
+}
+
+.dashboard-chat-bot .chat-input-send-button {
+    display: none;
 }

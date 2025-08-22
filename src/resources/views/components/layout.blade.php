@@ -18,8 +18,35 @@
 
         gtag('js', new Date());
 
-        gtag('config', '{{ config('services.google_analytics.tracking_id') }}');
+        gtag('config', '{{ config('
+            services.google_analytics.tracking_id ') }}');
     </script>
+    <!-- Meta Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '24157061627318479');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=24157061627318479&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     @endenv
 
 
@@ -42,6 +69,8 @@
             <x-boxed-nav-link href="#employment">Employment</x-boxed-nav-link>
             <x-boxed-nav-link href="#education">Education</x-boxed-nav-link>
             <x-boxed-nav-link href="/resume" target="_blank">Resume</x-boxed-nav-link>
+            <x-boxed-nav-link href="/projects">Projects</x-boxed-nav-link>
+            <x-boxed-nav-link href="/dashboard">AI Agents</x-boxed-nav-link>
         </x-boxed-nav>
 
         {{ $slot }}
