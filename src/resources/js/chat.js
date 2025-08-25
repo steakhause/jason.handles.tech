@@ -7,6 +7,10 @@ const LS_KEY_VARIANTS = [
   'n8nchat/sessionid',
 ];
 
+$('#n8n-chat').on('click', '.chat-message-from-user', function(){
+  $(this).toggleClass('no-line-clamp');
+});
+
 // ---------- utils ----------
 function uuidv4() {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();

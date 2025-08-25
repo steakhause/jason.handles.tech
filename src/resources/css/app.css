@@ -34,6 +34,8 @@
   --chat--spacing: 2rem;
 }
 
+
+
 .chat-header {
   margin-bottom: 12px;
 }
@@ -56,9 +58,29 @@
   margin: 2em auto;
 }
 
-.chat-message-from-user {
+.chat-message-from-user {  
   text-align: right;
   color: var(--text-secondary);
+}
+
+.dashboard-chat-bot .chat-body .chat-messages-list .chat-message-from-user, .line-clamp-3 {  
+  display: -webkit-box;          
+  -webkit-box-orient: vertical;  
+  line-clamp: 3;
+  -webkit-line-clamp: 3;         
+  overflow: hidden;              
+  overflow-wrap: anywhere;
+  padding-right: 4px;
+}
+
+.dashboard-chat-bot .chat-body .chat-messages-list .chat-message-from-user:hover{
+  cursor: pointer;
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+}
+
+.no-line-clamp {
+  display: block !important;
 }
 
 .dashboard-chat-bot .chat-input-send-button {
