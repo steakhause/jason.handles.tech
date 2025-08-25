@@ -22,31 +22,34 @@
                         @endphp
 
                         @if($hasUserInfoDoc)
-                        <p class="mb-8">
-                            Your skills and experience information has been loaded into the system. You have everything you need to start streamlining your job search.
-                        </p>
-                        <p class="mb-8">
-                            To get started, simply paste a job description into the chat window below. In mere moments you will receive an email from our professional AI job coach. We hope that you will find that your job coach has crafted the perfect resume and cover letter, referencing your full breadth of knowlede and accomplishments, and helping the hiring managers recognize why you are the best candidate for the position.
-                        </p>
-                        <p></p>
-                        <p class="text-red-400">
-                            Thank you for taking the time to try this demo. This tool is intentionally lightweight and not meant to be a fully fleshed-out project. It stands to serve only as a working example, demonstrating a few of my proficiencies. This project is all self hosted from my homelab and was built utilizing Proxmox, Docker, Nginx, PHP, Laravel, MySQL, Postgres, 8n8, Agentic AI, and Restful APIs.
-                        </p>
-                        @else
-                        @if (session('status'))
-                        <div class="mb-4 rounded-lg bg-green-100 text-green-900 px-4 py-3">
-                            {{ session('status') }}
-                        </div>
+                            <p class="mb-8">
+                                Your skills and experience information has been loaded into the system. 
+                            </p>
+                            <p class="mb-8">
+                                Feel free to add additional documents below or modify existing ones in your Google Drive at any time.
+                            </p>
+                            <p class="mb-8">
+                                To get started, simply paste a job description into the chat window below. In mere moments you will receive an email from our professional AI job coach. We hope that you will find that your job coach has crafted the perfect resume and cover letter, referencing your full breadth of knowlede and accomplishments, and helping the hiring managers recognize why you are the best candidate for the position.
+                            </p>
+                            <p></p>
+                            <p class="text-red-400">
+                                Thank you for taking the time to try this demo. This tool is intentionally lightweight and not meant to be a fully fleshed-out project. It stands to serve only as a working example, demonstrating a few of my proficiencies. This project is all self hosted from my homelab and was built utilizing Proxmox, Docker, Nginx, PHP, Laravel, MySQL, Postgres, 8n8, Agentic AI, and Restful APIs.
+                            </p>
                         @endif
-                        @if ($errors->any())
-                        <div class="mb-4 rounded-lg bg-red-100 text-red-900 px-4 py-3">
-                            <ul class="list-disc list-inside">
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
+                            @if (session('status'))
+                                <div class="mb-4 rounded-lg bg-green-100 text-green-900 px-4 py-3">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div class="mb-4 rounded-lg bg-red-100 text-red-900 px-4 py-3">
+                                    <ul class="list-disc list-inside">
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                         <div class="prose prose-invert max-w-none mb-6">
                             <p class="mb-3">
@@ -128,7 +131,6 @@
                                 });
                             })();
                         </script>
-                        @endif
                     </div>
                 </div>
 
@@ -147,58 +149,60 @@
                         </div>
                         -->
 
-                        <!-- Right column (responsive video) -->
+                        <!-- Chat Window -->
                         <div>
-                            <figure class="w-full">
-                                <!-- Aspect-ratio wrapper keeps video proportional -->
-                                <div id="n8n-chat" class="chat-window w-full overflow-hidden">
-                                    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-                                    <script type="module">
-                                        import {
-                                            createChat
-                                        } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+                            @if($hasUserInfoDoc)
+                                <figure class="w-full">
+                                    <!-- Aspect-ratio wrapper keeps video proportional -->
+                                    <div id="n8n-chat" class="chat-window w-full overflow-hidden">
+                                        <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+                                        <script type="module">
+                                            import {
+                                                createChat
+                                            } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-                                        createChat({
-                                            webhookUrl: 'https://n8n.handles.tech/webhook/2afb26e9-f031-41d0-bfe9-e3f1d313e948/chat',
-                                            target: '.chat-window',
-                                            showWelcomeScreen: false,
-                                            defaultLanguage: 'en',
-                                            initialMessages: [],
-                                            i18n: {
-                                                en: {
-                                                    title: 'Hello, {{ auth()->user()->first_name }}.',
-                                                    subtitle: "What job can I assist you in applying for?",
-                                                    getStarted: 'New Conversation',
-                                                    footer: '',
-                                                    getStarted: 'New Conversation',
-                                                    inputPlaceholder: 'Paste a job description or ask a question...',
+                                            createChat({
+                                                webhookUrl: 'https://n8n.handles.tech/webhook/2afb26e9-f031-41d0-bfe9-e3f1d313e948/chat',
+                                                target: '.chat-window',
+                                                showWelcomeScreen: false,
+                                                defaultLanguage: 'en',
+                                                initialMessages: [],
+                                                i18n: {
+                                                    en: {
+                                                        title: 'Hello, {{ auth()->user()->first_name }}.',
+                                                        subtitle: "What job can I assist you in applying for?",
+                                                        getStarted: 'New Conversation',
+                                                        footer: '',
+                                                        getStarted: 'New Conversation',
+                                                        inputPlaceholder: 'Paste a job description or ask a question...',
+                                                    },
                                                 },
-                                            },
-                                            mode: 'fullscreen',
-                                            enableStreaming: true,
+                                                mode: 'fullscreen',
+                                                enableStreaming: true,
 
-                                        });
-                                    </script>
-                                </div>
-                                <div class="text-right flex flex-col sm:flex-row-reverse gap-3 sm:items-center sm:justify-between">
-                                    <div class="flex gap-3">
-                                        <button type="button" id="clear-chat"
-                                            class="inline-flex items-center justify-center rounded-md px-4 py-2 mt-6 mr-4 text-sm font-medium bg-stone-700 hover:bg-stone-600 text-stone-100">
-                                            Clear Chat
-                                        </button>
-                                        <button
-                                            id="submit-chat"
-                                            class="inline-flex items-center justify-center rounded-md px-4 py-2 mt-6 mr-4 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white"
-                                            data-post-url="{{ route('n8n_chats.store', [], false) }}" {{-- relative: /n8n-chats --}}
-                                            data-send-btn=".chat-input-send-button"
-                                            data-textarea=".chat-inputs textarea">
-                                            Submit This
-                                        </button>
-
+                                            });
+                                        </script>
                                     </div>
-                                </div>
+                                    <div class="text-right flex flex-col sm:flex-row-reverse gap-3 sm:items-center sm:justify-between">
+                                        <div class="flex gap-3">
+                                            <button type="button" id="clear-chat"
+                                                class="inline-flex items-center justify-center rounded-md px-4 py-2 mt-6 mr-4 text-sm font-medium bg-stone-700 hover:bg-stone-600 text-stone-100">
+                                                Clear Chat
+                                            </button>
+                                            <button
+                                                id="submit-chat"
+                                                class="inline-flex items-center justify-center rounded-md px-4 py-2 mt-6 mr-4 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white"
+                                                data-post-url="{{ route('n8n_chats.store', [], false) }}" {{-- relative: /n8n-chats --}}
+                                                data-send-btn=".chat-input-send-button"
+                                                data-textarea=".chat-inputs textarea">
+                                                Submit This
+                                            </button>
 
-                            </figure>
+                                        </div>
+                                    </div>
+
+                                </figure>
+                            @endif
                         </div>
                     </div>
                 </div>
