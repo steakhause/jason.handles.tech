@@ -7,7 +7,7 @@ const LS_KEY_VARIANTS = [
   'n8nchat/sessionid',
 ];
 
-// ---------------- utils ----------------
+// ---------- utils ----------
 function uuidv4() {
   if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -45,10 +45,6 @@ function getChatTextarea(selector) {
 }
 
 async function saveChat({ url, csrf, sessionId, text }) {
-  if (!url) {
-    console.warn('[n8n_chats] Missing data-post-url on #submit-chat');
-    return { ok: false, reason: 'no-url' };
-  }
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -66,17 +62,49 @@ async function saveChat({ url, csrf, sessionId, text }) {
     console.warn('[n8n_chats] save failed', res.status, body);
     return { ok: false, status: res.status, body };
   }
-  console.debug('[n8n_chats] saved row', body);
   return { ok: true, status: res.status, body };
 }
 
-// --------------- public API ---------------
+// ---------- public API ----------
 export function initChatControls() {
-  const clearBtn  = document.getElementById('clear-chat');
-  const submitBtn = document.getElementById('submit-chat');
+  if (window.__n8nChatBound) return;         // avoid double-binding with HMR
+  window.__n8nChatBound = true;
 
-  console.debug('[n8n_chats] initChatControls binding…', { clearBtn: !!clearBtn, submitBtn: !!submitBtn });
+  const clearBtn   = document.getElementById('clear-chat');
+  const submitBtn  = document.getElementById('submit-chat');
+  const csrf       = getCsrfToken();
 
+  // Defaults; can be overridden via data-* on #submit-chat
+  const postUrl     = submitBtn?.dataset.postUrl || '/n8n-chats';
+  const sendBtnSel  = submitBtn?.dataset.sendBtn || '.chat-input-send-button';
+  const textareaSel = submitBtn?.dataset.textarea || '.chat-inputs textarea';
+
+  let saving = false; // simple de-dupe guard
+
+  async function handleSubmit(from = 'unknown') {
+    const ta = getChatTextarea(textareaSel);
+    const text = (ta?.value || '').trim();
+    const sessionId = getOrInitSessionId();
+
+    if (!text) {
+      console.debug(`[n8n_chats] empty textarea; skipping DB save (from=${from})`);
+      return;
+    }
+    if (saving) return; // avoid rapid double saves
+    saving = true;
+    try {
+      await saveChat({ url: postUrl, csrf, sessionId, text });
+    } catch (err) {
+      console.error('[n8n_chats] network error', err);
+    } finally {
+      saving = false;
+    }
+
+    // Forward to the widget (enable when ready):
+    document.querySelector(sendBtnSel)?.click();
+  }
+
+  // Clear button
   if (clearBtn) {
     clearBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -87,42 +115,35 @@ export function initChatControls() {
     }, { capture: true });
   }
 
+  // Fake submit button (click)
   if (submitBtn) {
-    const postUrl     = submitBtn.dataset.postUrl || '/n8n-chats';
-    const sendBtnSel  = submitBtn.dataset.sendBtn || '.chat-input-send-button';
-    const textareaSel = submitBtn.dataset.textarea || '.chat-inputs textarea';
-    const csrf        = getCsrfToken();
-
-    // CAPTURE PHASE to ensure we run first
     submitBtn.addEventListener('click', async (e) => {
-      console.debug('[n8n_chats] submit handler fired');
-      // stop anything else from seeing this click
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
-
-      const ta = getChatTextarea(textareaSel);
-      const text = (ta?.value || '').trim();
-      const sessionId = getOrInitSessionId();
-
-      if (!text) {
-        console.debug('[n8n_chats] empty textarea; skipping DB save');
-        // return; // uncomment if you want to do nothing when empty
-      } else {
-        try {
-          await saveChat({ url: postUrl, csrf, sessionId, text });
-        } catch (err) {
-          console.error('[n8n_chats] network error', err);
-        }
-      }
-
-      // For debugging: prove this handler ran
-      //alert('Captured click; NOT forwarding to chat. sessionId=' + sessionId);
-
-      // When you’re ready to re-enable sending through the widget:
-      document.querySelector(sendBtnSel)?.click();
-    }, { capture: true }); // <— important
+      await handleSubmit('click');
+      // If you want to block the widget entirely during testing, comment the click in handleSubmit()
+    }, { capture: true });
   } else {
-    console.warn('[n8n_chats] #submit-chat not found on page');
+    console.warn('[n8n_chats] #submit-chat not found');
   }
+
+  // ENTER to submit (on the textarea) — intercept BEFORE the widget
+  document.addEventListener('keydown', async (e) => {
+    // Only care about Enter on the n8n textarea
+    const isEnter = (e.key === 'Enter' || e.keyCode === 13);
+    const target = e.target;
+    if (!isEnter || !(target instanceof HTMLTextAreaElement)) return;
+    if (!target.matches(textareaSel)) return;
+
+    // Let Shift+Enter create a newline
+    if (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
+
+    // Intercept so the widget doesn’t submit first
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    await handleSubmit('enter');
+  }, { capture: true, passive: false });
 }
