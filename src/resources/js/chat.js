@@ -39,12 +39,12 @@ function getCsrfToken() {
 
 function getChatTextarea(selector) {
   const nodes = Array.from(document.querySelectorAll(selector)).filter(
-    el => el.offsetParent !== null
+    el => el.offsetParent !== null && !el.closest('[hidden],[aria-hidden="true"]')
   );
   return nodes.at(-1) || document.querySelector(selector);
 }
 
-async function saveChat({ url, csrf, sessionId, text }) {
+async function saveChat({ url, csrf, sessionId, text, signal }) {
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -55,6 +55,7 @@ async function saveChat({ url, csrf, sessionId, text }) {
     },
     credentials: 'include',
     body: JSON.stringify({ session_id: sessionId, input: text }),
+    signal,
   });
   const ct = res.headers.get('content-type') || '';
   const body = ct.includes('application/json') ? await res.json() : await res.text();
@@ -67,19 +68,38 @@ async function saveChat({ url, csrf, sessionId, text }) {
 
 // ---------- public API ----------
 export function initChatControls() {
-  if (window.__n8nChatBound) return;         // avoid double-binding with HMR
+  if (window.__n8nChatBound) return; // avoid double-binding with HMR
   window.__n8nChatBound = true;
 
-  const clearBtn   = document.getElementById('clear-chat');
-  const submitBtn  = document.getElementById('submit-chat');
-  const csrf       = getCsrfToken();
+  const csrf = getCsrfToken();
+
+  // --- Toggle for Google Docs panel ---
+  const gdTogglebtn = document.getElementById('google-docs-form-toggle');
+  const gdPanel = document.getElementById('google-docs-form');
+  const toggleIcon = gdTogglebtn?.querySelector('svg');
+
+  if (gdTogglebtn && gdPanel) {
+    // Make aria-expanded match initial state
+    gdTogglebtn.setAttribute('aria-expanded', String(!gdPanel.classList.contains('hidden')));
+    gdTogglebtn.addEventListener('click', () => {
+      const open = gdTogglebtn.getAttribute('aria-expanded') === 'true';
+      gdTogglebtn.setAttribute('aria-expanded', String(!open));
+      gdPanel.classList.toggle('hidden');
+      toggleIcon?.classList.toggle('rotate-180');
+    });
+  }
+
+  // --- Chat controls (not gated by the toggle’s existence) ---
+  const clearBtn  = document.getElementById('clear-chat');
+  const submitBtn = document.getElementById('submit-chat');
 
   // Defaults; can be overridden via data-* on #submit-chat
   const postUrl     = submitBtn?.dataset.postUrl || '/n8n-chats';
   const sendBtnSel  = submitBtn?.dataset.sendBtn || '.chat-input-send-button';
   const textareaSel = submitBtn?.dataset.textarea || '.chat-inputs textarea';
 
-  let saving = false; // simple de-dupe guard
+  let saving = false;
+  let aborter = null;
 
   async function handleSubmit(from = 'unknown') {
     const ta = getChatTextarea(textareaSel);
@@ -90,12 +110,16 @@ export function initChatControls() {
       console.debug(`[n8n_chats] empty textarea; skipping DB save (from=${from})`);
       return;
     }
-    if (saving) return; // avoid rapid double saves
+    if (saving) return;
+
     saving = true;
+    aborter?.abort(); // cancel any in-flight request
+    aborter = new AbortController();
+
     try {
-      await saveChat({ url: postUrl, csrf, sessionId, text });
+      await saveChat({ url: postUrl, csrf, sessionId, text, signal: aborter.signal });
     } catch (err) {
-      console.error('[n8n_chats] network error', err);
+      if (err.name !== 'AbortError') console.error('[n8n_chats] network error', err);
     } finally {
       saving = false;
     }
@@ -108,39 +132,33 @@ export function initChatControls() {
   if (clearBtn) {
     clearBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
       clearAllSessionIds();
       console.debug('[n8n_chats] cleared sessionId(s) from Local Storage');
-    }, { capture: true });
+      window.location.reload();
+    });
+  } else {
+    console.warn('[n8n_chats] #clear-chat not found');
   }
 
   // Fake submit button (click)
   if (submitBtn) {
     submitBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
       await handleSubmit('click');
-      // If you want to block the widget entirely during testing, comment the click in handleSubmit()
-    }, { capture: true });
+    });
   } else {
     console.warn('[n8n_chats] #submit-chat not found');
   }
 
-  // ENTER to submit (on the textarea) — intercept BEFORE the widget
+  // Keypress on ENTER to submit (on the textarea)
   document.addEventListener('keydown', async (e) => {
-    // Only care about Enter on the n8n textarea
     const isEnter = (e.key === 'Enter' || e.keyCode === 13);
     const target = e.target;
     if (!isEnter || !(target instanceof HTMLTextAreaElement)) return;
     if (!target.matches(textareaSel)) return;
-
-    // Let Shift+Enter create a newline
     if (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
 
-    // Intercept so the widget doesn’t submit first
-    e.preventDefault();
+    e.preventDefault(); // intercept so the widget doesn’t submit first
     e.stopPropagation();
     e.stopImmediatePropagation();
 

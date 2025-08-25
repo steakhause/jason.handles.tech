@@ -22,26 +22,45 @@
                         @endphp
 
                         @if($hasUserInfoDoc)
-                            <p class="mb-8">
-                                Your skills and experience information has been loaded into the system. 
-                            </p>
-                            <p class="mb-8">
+                        <p class="mb-8">
+                            Your skills and experience information has been loaded into the system.
+                        </p>
+                        <p class="mb-8">
+                            To get started, simply paste a job description into the chat window below. In mere moments you will receive an email from our professional AI job coach. We hope that you will find that your job coach has crafted the perfect resume and cover letter, referencing your full breadth of knowlede and accomplishments, and helping the hiring managers recognize why you are the best candidate for the position.
+                        </p>
+                        <p></p>
+                        <!-- Dropdown to select existing doc to edit -->
+                        <div class="rounded-lg overflow-hidden">
+                            <button id="google-docs-form-toggle"
+                                    type="button"
+                                    aria-controls="google-docs-form"
+                                    aria-expanded="false"
+                                    class="w-full flex items-center justify-between gap-3
+                                            bg-stone-700 px-4 py-4 text-stone-100 rounded-lg
+                                            cursor-pointer shadow hover:bg-stone-600 hover:shadow-md
+                                            focus:outline-none focus:ring-2 focus:ring-stone-700 transition">
+                                <span class="text-left m-0">
                                 Feel free to add additional documents below or modify existing ones in your Google Drive at any time.
-                            </p>
-                            <p class="mb-8">
-                                To get started, simply paste a job description into the chat window below. In mere moments you will receive an email from our professional AI job coach. We hope that you will find that your job coach has crafted the perfect resume and cover letter, referencing your full breadth of knowlede and accomplishments, and helping the hiring managers recognize why you are the best candidate for the position.
-                            </p>
-                            <p></p>
-                            <p class="text-red-400">
-                                Thank you for taking the time to try this demo. This tool is intentionally lightweight and not meant to be a fully fleshed-out project. It stands to serve only as a working example, demonstrating a few of my proficiencies. This project is all self hosted from my homelab and was built utilizing Proxmox, Docker, Nginx, PHP, Laravel, MySQL, Postgres, 8n8, Agentic AI, and Restful APIs.
-                            </p>
+                                </span>
+                                <!-- chevron -->
+                                <svg class="h-5 w-5 shrink-0 opacity-80 transition-transform duration-200"
+                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z"/>
+                                </svg>
+                            </button>
+
+                            <div id="google-docs-form" class="hidden p-4 bg-stone-700">
+                        @else
+                        <div>
+                            <div id="google-docs-form" class="p-4 bg-stone-700">
                         @endif
-                            @if (session('status'))
+
+                                @if (session('status'))
                                 <div class="mb-4 rounded-lg bg-green-100 text-green-900 px-4 py-3">
                                     {{ session('status') }}
                                 </div>
-                            @endif
-                            @if ($errors->any())
+                                @endif
+                                @if ($errors->any())
                                 <div class="mb-4 rounded-lg bg-red-100 text-red-900 px-4 py-3">
                                     <ul class="list-disc list-inside">
                                         @foreach ($errors->all() as $error)
@@ -49,43 +68,45 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @endif
+                                @endif
 
-                        <div class="prose prose-invert max-w-none mb-6">
-                            <p class="mb-3">
-                                Please share your Google document with:
-                                <code class="px-1 py-0.5 rounded bg-stone-700">jason-ryszka@handles-tech.iam.gserviceaccount.com</code>
-                            </p>
-                            <p class="mb-6">
-                                Then paste the document URL (or ID) below and submit.
-                            </p>
+                                <div class="prose prose-invert max-w-none mb-6">
+                                    <p class="mb-3">
+                                        Please share your Google document with:
+                                        <code class="px-1 py-0.5 rounded bg-stone-700">jason-ryszka@handles-tech.iam.gserviceaccount.com</code>
+                                    </p>
+                                    <p class="mb-6">
+                                        Then paste the document URL (or ID) below and submit.
+                                    </p>
+                                </div>
+
+                                <form id="userInfoDocForm" class="space-y-4" method="POST" action="{{ route('documents.userInfo.store') }}">
+                                    @csrf
+
+                                    <!-- Hidden fields -->
+                                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                    <input type="hidden" name="platform" value="google">
+                                    <input type="hidden" name="title" value="User Information">
+
+                                    <!-- Visible field -->
+                                    <label for="doc_id" class="block text-sm font-medium text-stone-200">Google Doc URL or ID</label>
+                                    <input
+                                        id="doc_id"
+                                        name="doc_id"
+                                        type="text"
+                                        required
+                                        placeholder="https://docs.google.com/document/d/xxxx... or the raw ID"
+                                        class="w-full rounded-md bg-stone-800 border border-stone-700 px-3 py-2 text-stone-100 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500" />
+                                    <p id="docHint" class="text-xs text-stone-400"></p>
+
+                                    <button
+                                        type="submit"
+                                        class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white">
+                                        Save Document
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-
-                        <form id="userInfoDocForm" class="space-y-4" method="POST" action="{{ route('documents.userInfo.store') }}">
-                            @csrf
-
-                            <!-- Hidden fields -->
-                            <input type="hidden" name="user_id" value="{{ $user->id }}">
-                            <input type="hidden" name="platform" value="google">
-                            <input type="hidden" name="title" value="User Information">
-
-                            <!-- Visible field -->
-                            <label for="doc_id" class="block text-sm font-medium text-stone-200">Google Doc URL or ID</label>
-                            <input
-                                id="doc_id"
-                                name="doc_id"
-                                type="text"
-                                required
-                                placeholder="https://docs.google.com/document/d/xxxx... or the raw ID"
-                                class="w-full rounded-md bg-stone-800 border border-stone-700 px-3 py-2 text-stone-100 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-500" />
-                            <p id="docHint" class="text-xs text-stone-400"></p>
-
-                            <button
-                                type="submit"
-                                class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white">
-                                Save Document
-                            </button>
-                        </form>
 
                         <script>
                             (function() {
@@ -132,6 +153,9 @@
                             })();
                         </script>
                     </div>
+                    <p class="text-red-400 mt-10">
+                        Thank you for taking the time to try this demo. This tool is intentionally lightweight and not meant to be a fully fleshed-out project. It stands to serve only as a working example, demonstrating a few of my proficiencies. This project is all self hosted from my homelab and was built utilizing Proxmox, Docker, Nginx, PHP, Laravel, MySQL, Postgres, 8n8, Agentic AI, and Restful APIs.
+                    </p>
                 </div>
 
                 <!-- Content: text + video -->
@@ -152,7 +176,10 @@
                         <!-- Chat Window -->
                         <div>
                             @if($hasUserInfoDoc)
-                                <figure class="w-full">
+                            <figure class="w-full">
+                                @else
+                                <figure class="w-full hidden">
+                                    @endif
                                     <!-- Aspect-ratio wrapper keeps video proportional -->
                                     <div id="n8n-chat" class="chat-window w-full overflow-hidden">
                                         <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
@@ -202,7 +229,6 @@
                                     </div>
 
                                 </figure>
-                            @endif
                         </div>
                     </div>
                 </div>
