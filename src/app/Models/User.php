@@ -48,4 +48,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * n8n ai chat sessions
+     * 
+     */
+    public function chats()
+    {
+        return $this->hasMany(\App\Models\N8nChat::class);
+    }
+    /**
+     * User uploaded documents
+     * 
+     */
+    public function documents()
+    {
+        return $this->hasMany(\App\Models\Document::class);
+    }
 }

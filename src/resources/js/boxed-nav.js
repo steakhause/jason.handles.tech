@@ -1,4 +1,4 @@
-$(function () {
+export function initBoxedNav() {
     const $menu = $('#boxed-nav-menu');
     const $links = $('#boxed-nav a[href^="#"]');
 
@@ -33,6 +33,6 @@ $(function () {
         });
     });
 
-});
+};
 
 

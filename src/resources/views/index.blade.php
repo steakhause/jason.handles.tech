@@ -4,13 +4,13 @@
     </x-slot:title>
 
     <!--HERO SECTION-->
-    <x-full-page-section class="flex" background="/images/pencil-room.jpg">
-        <div id="overlay" class="absolute inset-0 bg-red-600/65 transition-colors duration-700"></div>
+    <x-full-page-section class="flex" background="/images/hero_2.png">
+        <div id="overlay" class="absolute inset-0 bg-stone-950/95 transition-colors duration-700"></div>
 
-        <div class="relative z-10 flex flex-col items-center space-y-4 text-white-300 text-center">
-            <h1 class="text-4xl md:text-4xl font-arkitech tracking-widest mx-10">JASON</h1>
-            <hr class="w-full border-white border-t">
-            <h2 class="text-2xl md:text-3xl font-arkitech tracking-wide mx-10">HANDLES TECH</h2>
+        <div class="relative z-10 flex flex-col items-center space-y-4 text-red-500 text-center">
+            <h1 class="text-4xl md:text-4xl font-arkitech tracking-widest mx-10 [text-shadow:1px_2px_4px_#000]">JASON</h1>
+            <hr class="w-full border-red-500 border-t shadow-[1px_1px_4px_#000]">
+            <h2 class="text-2xl md:text-3xl font-arkitech tracking-wide mx-10 [text-shadow:1px_2px_4px_#000]">HANDLES TECH</h2>
         </div>
     </x-full-page-section>
 
@@ -91,7 +91,7 @@
     </x-default-section>
 
     <!--SKILLS SECTION-->
-    <x-default-section id="experience" class="bg-stone-700" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
+    <x-default-section id="experience" class="bg-stone-950" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
 
         @foreach (array_chunk($skills, 3) as $chunk)
             <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-stretch text-2xl">
@@ -195,7 +195,7 @@
 
     <!-- EDUCATION SECTION -->
 
-    <x-full-page-section id="education" h1="Education" class="bg-stone-700 pt-8" :quote='["Strive not to be a success, but rather to be of value.","Albert Einstein"]'>
+    <x-full-page-section id="education" h1="Education" class="bg-stone-950 pt-8" :quote='["Strive not to be a success, but rather to be of value.","Albert Einstein"]'>
         <article class="max-w-screen-lg mx-auto px-4 my-8 items-start items-stretch text-lg flex flex-col md:flex-row gap-6">
             <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">Purdue University - Indianapolis, IN</h3>
