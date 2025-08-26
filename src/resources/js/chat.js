@@ -1,13 +1,13 @@
 // resources/js/chat.js
 
 const LS_KEY_VARIANTS = [
-  'n8n-chat/sessionid', // canonical
+  'n8n-chat/sessionId', // canonical
   'n8nchat/sessionId',
-  'n8n-chat/sessionId',
+  'n8n-chat/sessionid',
   'n8nchat/sessionid',
 ];
 
-$('#n8n-chat').on('click', '.chat-message-from-user', function(){
+$('#n8n-chat').on('click', '.chat-message-from-user', function () {
   $(this).toggleClass('no-line-clamp');
 });
 
@@ -24,12 +24,12 @@ function getOrInitSessionId() {
   for (const key of LS_KEY_VARIANTS) {
     const val = localStorage.getItem(key);
     if (val) {
-      if (key !== LS_KEY_VARIANTS[0]) localStorage.setItem(LS_KEY_VARIANTS[0], val);
+      //if (key !== LS_KEY_VARIANTS[0]) alert(key + ' ' + val);
       return val;
     }
   }
   const id = uuidv4();
-  localStorage.setItem(LS_KEY_VARIANTS[0], id);
+  //localStorage.setItem(LS_KEY_VARIANTS[0], id);
   return id;
 }
 
@@ -94,12 +94,12 @@ export function initChatControls() {
   }
 
   // --- Chat controls (not gated by the toggle’s existence) ---
-  const clearBtn  = document.getElementById('clear-chat');
+  const clearBtn = document.getElementById('clear-chat');
   const submitBtn = document.getElementById('submit-chat');
 
   // Defaults; can be overridden via data-* on #submit-chat
-  const postUrl     = submitBtn?.dataset.postUrl || '/n8n-chats';
-  const sendBtnSel  = submitBtn?.dataset.sendBtn || '.chat-input-send-button';
+  const postUrl = submitBtn?.dataset.postUrl || '/n8n-chats';
+  const sendBtnSel = submitBtn?.dataset.sendBtn || '.chat-input-send-button';
   const textareaSel = submitBtn?.dataset.textarea || '.chat-inputs textarea';
 
   let saving = false;
@@ -130,6 +130,7 @@ export function initChatControls() {
 
     // Forward to the widget (enable when ready):
     document.querySelector(sendBtnSel)?.click();
+    setWaitState(true);
   }
 
   // Clear button
@@ -156,16 +157,128 @@ export function initChatControls() {
 
   // Keypress on ENTER to submit (on the textarea)
   document.addEventListener('keydown', async (e) => {
-    const isEnter = (e.key === 'Enter' || e.keyCode === 13);
+    const isEnter = (e.key === 'Enter');
     const target = e.target;
     if (!isEnter || !(target instanceof HTMLTextAreaElement)) return;
     if (!target.matches(textareaSel)) return;
     if (e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
 
-    e.preventDefault(); // intercept so the widget doesn’t submit first
+    e.preventDefault();
     e.stopPropagation();
     e.stopImmediatePropagation();
 
     await handleSubmit('enter');
   }, { capture: true, passive: false });
 }
+
+// ---- Chat loader ----
+const textareaSel = 'textarea[data-test-id="chat-input"]';
+const sendBtnSel = '#n8n-chat [data-test-id="send-button"], [data-test-id="send-button"]';
+const WAIT_TEXT = 'Please wait while I review your request…';
+const N8N_CHAT_ENDPOINT = 'n8n.handles.tech/chat';
+
+
+// --- SHOW/HIDE WAIT STATE -------------------------------------------------
+function ensureLoader(ta) {
+  let loader = document.getElementById('chat-wait-loader');
+  if (!loader) {
+    loader = document.createElement('div');
+    loader.id = 'chat-wait-loader';
+    loader.className = 'chat-loader hidden';
+    loader.innerHTML = `<div class="spinner" aria-hidden="true"></div>
+                        <span>${WAIT_TEXT}</span>`;
+    // Place right after the textarea
+    (ta.parentElement || ta).insertAdjacentElement('afterend', loader);
+  }
+  return loader;
+}
+
+function setWaitState(on) {
+  const ta = getChatTextarea(textareaSel);
+  if (!ta) return;
+
+  // Remember original placeholder once
+  if (!ta.dataset._origPh) ta.dataset._origPh = ta.placeholder || '';
+
+  const loader = ensureLoader(ta);
+
+  if (on) {
+    try {
+      ta.placeholder = WAIT_TEXT;
+    } catch (_) { }
+    ta.setAttribute('aria-busy', 'true');
+    //ta.disabled = true;                // optional: prevent typing while sending
+    loader.classList.remove('hidden'); // fallback/extra signal
+  } else {
+    try {
+      ta.placeholder = ta.dataset._origPh || '';
+    } catch (_) { }
+    ta.removeAttribute('aria-busy');
+    //ta.disabled = false;
+    loader.classList.add('hidden');
+  }
+}
+
+// --- FETCH WRAPPER: detect when the n8n chat POST completes ---------------
+// --- detection config ---
+const N8N_HOST = 'n8n.handles.tech';
+const N8N_CHAT_PATH_RE = /\/(?:webhook\/[0-9a-f-]+\/)?chat(?:[/?#]|$)/i;
+
+// --- fetch/XHR wrapper ---
+(function wrapNetworkForN8N() {
+  if (window.__wrappedNetworkForN8N) return;
+  window.__wrappedNetworkForN8N = true;
+
+  // fetch
+  const _fetch = window.fetch;
+  window.fetch = async function(input, init) {
+    const method = (init?.method || 'GET').toUpperCase();
+    const url = typeof input === 'string' ? input : input?.url;
+    let isN8nChat = false;
+
+    try {
+      const u = new URL(url, location.href);
+      isN8nChat = (u.host === N8N_HOST) && N8N_CHAT_PATH_RE.test(u.pathname) && method === 'POST';
+    } catch { /* ignore parse errors */ }
+
+    if (isN8nChat) setWaitState(true);
+
+    try {
+      const resp = await _fetch.apply(this, arguments);
+
+      if (isN8nChat) {
+        // If not streaming, clear immediately; otherwise clear after the clone finishes.
+        if (!resp.body) {
+          setWaitState(false);
+        } else {
+          resp.clone().text().finally(() => setWaitState(false));
+        }
+      }
+      return resp;
+    } catch (e) {
+      if (isN8nChat) setWaitState(false);
+      throw e;
+    }
+  };
+
+  // XMLHttpRequest (for libs that still use it)
+  const _open = XMLHttpRequest.prototype.open;
+  const _send = XMLHttpRequest.prototype.send;
+
+  XMLHttpRequest.prototype.open = function(method, url) {
+    this.__isN8nChat = false;
+    try {
+      const u = new URL(url, location.href);
+      this.__isN8nChat = (u.host === N8N_HOST) && N8N_CHAT_PATH_RE.test(u.pathname) && method.toUpperCase() === 'POST';
+    } catch { /* ignore */ }
+    return _open.apply(this, arguments);
+  };
+
+  XMLHttpRequest.prototype.send = function() {
+    if (this.__isN8nChat) {
+      setWaitState(true);
+      this.addEventListener('loadend', () => setWaitState(false), { once: true });
+    }
+    return _send.apply(this, arguments);
+  };
+})();

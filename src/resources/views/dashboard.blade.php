@@ -161,17 +161,6 @@
                 <!-- Content: text + video -->
                 <div class="border-t border-stone-700">
                     <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-10 items-start">
-                        <!-- Left column (details) -->
-                        <!--
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-semibold text-stone-200">Demo Video</h3>
-                            <p class="text-stone-400">
-                                The video showcases a quick walkthrough of the demo and related features.
-                                On mobile, the video scales down to fit your screen; on larger screens,
-                                it maintains a clean, readable layout next to this description.
-                            </p>
-                        </div>
-                        -->
 
                         <!-- Chat Window -->
                         <div>
@@ -233,20 +222,6 @@
                     </div>
                 </div>
 
-                <!-- 
-                <div class="border-t border-stone-700 px-6 sm:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-                    <div class="flex gap-3">
-                        <a href="{{ url()->previous() }}"
-                            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-700 hover:bg-stone-600 text-stone-100">
-                            Go Back
-                        </a>
-                        <a href="{{ route('dashboard') }}"
-                            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white">
-                            Dashboard
-                        </a>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
     </div>
