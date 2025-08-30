@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-stone-300 leading-tight">
             Personal Projects
@@ -81,4 +81,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-guest-layout>
