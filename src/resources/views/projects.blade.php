@@ -28,7 +28,11 @@
                     <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start">
                         <!-- Left column (details) -->
                         <div class="space-y-4">
-                            <h3 class="text-lg font-semibold text-stone-200">AI Resume Builder</h3>
+                            <h3 class="text-lg font-semibold text-stone-200">
+                                <a href="{{ route('resume.builder') }}" class="hover:underline">
+                                    AI Resume Builder
+                                </a>
+                            </h3>
                             <p class="text-stone-400">
                                 This demo showcases a professional AI job coach that streamlines the arduous job-search process.
                             </p>
