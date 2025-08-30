@@ -41,21 +41,21 @@
                             <figure class="w-full">
                                 <!-- Aspect-ratio wrapper keeps video proportional -->
                                 <div class="aspect-video w-full overflow-hidden rounded-lg ring-1 ring-stone-700/60">
-                                    <video
+                                    <iframe
                                         id="demo-video"
                                         class="w-full h-full"
-                                        controls
-                                        preload="metadata"
-                                        poster="{{ asset('EV6.png') }}"
-                                        aria-label="Demo video">
-                                        <source src="{{ asset('videos/ai_resume_builder.mp4') }}" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
+                                        src="https://www.youtube.com/embed/FnM87Gmg07I"
+                                        title="Demo video"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen>
+                                    </iframe>
                                 </div>
                                 <!--<figcaption class="mt-2 text-sm text-stone-400">
                                     If the video doesn't play, try refreshing or check your network connection.
                                 </figcaption>-->
                             </figure>
+
                         </div>
                     </div>
                 </div>
