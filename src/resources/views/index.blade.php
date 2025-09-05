@@ -22,29 +22,7 @@
             <section class="flex-2 block">
                 <h2 class="text-red-500 block text-2xl text-center">About Me</h2>
                 <p>
-                    I'm a full stack developer with over 25 years of hands-on experience across software development,
-                    network engineering, IT, telecommunications, and electrical systems. I've always believed that real
-                    expertise comes from doing. I've spent my career designing and building reliable, secure systems
-                    from
-                    the ground up.
-                    <br><br>
-                    My career journey has been a
-                    reflection of my work ethic and curiosity as I have been continually driven to learn, improve, and optimize both myself and the systems I manage.
-                    Along
-                    the way, I've been the leader, as well as a member, of high-performing dev and IT departments. "Not
-                    my
-                    job" is not a concept that I have ever understood. Whether it's coding, networking, or simply taking
-                    out
-                    the trash, I believe in leading by example, rolling up the sleeves, and getting things done. My
-                    approach
-                    is hands-on, and I take personal pride in making a tangible impact, be it big or small.
-                    <br><br>
-                    Outside of work and family time, it's easy to see that I'm a life long nerd, obsessed with all
-                    things
-                    tech. Whether it's listening to an OWASP or Linux podcast, expanding my home lab, building and
-                    coding
-                    IoT devices, or experimenting with containerized AI tools, I bring that same learner's mindset to
-                    everything I do, with a focus on long-term impact, automation, efficiency and maintainability.
+                    As a seasoned professional, I design and build sophisticated Object-Oriented web solutions with a primary focus on automation and custom API integration. My passion lies in creating tools that solve complex business challenges, enhance efficiency, and seamlessly bridge technology gaps. My approach to software development is uniquely informed by extensive, hands-on work across a wide array of technology fields, including server administration, data center construction, network engineering, enterprise hardware, IoT, and even electrical engineering. This comprehensive, foundational knowledge ensures that the solutions I build are not only well-coded but also practical, performant, and perfectly aligned with the underlying infrastructure.
                 </p>
             </section>
             
@@ -63,21 +41,21 @@
                     </li>
                     <li class="flex items-center space-x-4 pt-2">
                         <!-- LinkedIn -->
-                        <a href="/linkedin/" target="_blank" class="text-stone-500 hover:text-stone-700">
+                        <a href="{{ config('services.linkedin.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                 <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24h5V7H0v17zm7.5-17h4.5v2.25h.06c.63-1.2 2.17-2.25 4.44-2.25 4.76 0 5.63 3.13 5.63 7.2V24h-5v-7.5c0-1.8-.03-4.12-2.5-4.12s-2.88 1.95-2.88 4v7.62H7.5V7z"/>
                             </svg>
                         </a>
 
                         <!-- Zoom -->
-                        <a href="/zoom/" target="_blank" class="text-stone-500 hover:text-stone-700">
+                        <a href="{{ config('services.zoom.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                 <path d="M17 10.5V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h13c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
                             </svg>
                         </a>
 
                         <!-- GitHub -->
-                        <a href="https://github.com/steakhause" target="_blank" class="text-stone-500 hover:text-stone-700">
+                        <a href="{{ config('services.github.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                 <path d="M12 0C5.37 0 0 5.4 0 12.07c0 5.33 3.44 9.85 8.2 11.44.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2.01-3.34.73-4.04-1.63-4.04-1.63-.55-1.42-1.34-1.8-1.34-1.8-1.1-.76.08-.75.08-.75 1.2.09 1.84 1.26 1.84 1.26 1.08 1.87 2.83 1.33 3.52 1.02.11-.79.42-1.33.76-1.63-2.67-.31-5.47-1.36-5.47-6.05 0-1.34.47-2.44 1.24-3.3-.12-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.2 11.2 0 0 1 3-.41c1.02.01 2.05.14 3 .41 2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.24 2.94.12 3.25.77.86 1.24 1.96 1.24 3.3 0 4.7-2.8 5.73-5.48 6.04.43.37.82 1.1.82 2.23 0 1.61-.01 2.91-.01 3.3 0 .32.22.7.83.58C20.57 21.92 24 17.4 24 12.07 24 5.4 18.63 0 12 0z"/>
                             </svg>
@@ -115,19 +93,29 @@
                             class="text-xs text-stone-200" datetime="2025-04">April 2025</time>
                     </p>
                 </header>
+                <p>
+                    As CTO, I Directed the company's entire technology ecosystem, from software architecture and hands-on development to physical infrastructure, including data-center design, network operations, and office relocations. Served as the key technical leader bridging all departments, personally coding object-oriented solutions, utilities, and integrations to deliver secure, scalable, and cost-effective results.
+                </p>    
                 <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Reduced business costs and lead times by replacing multiple third-party vendors with in-house development and IT operations.</li>
-                    <li>Designed and deployed secure, scalable REST APIs and automation pipelines to enhance data flow, marketing, and sales processes.</li>
-                    <li>Managed all aspects of IT infrastructure across multiple locations — from structured cabling and
-                        VoIP systems to servers, CRMs, asset management, and building security.</li>
+                    <li>Developed a full-stack event management platform, saving over $7,000 per event and accelerating venue ingress by more than 90 minutes per 1,000 attendees.</li>
+                    <li>Architected automated fulfillment pipelines for over 200 unique physical and digital products, streamlining the entire sales-to-delivery process.</li>
+                    <li>Insourced all third-party IT and software development roles, saving the company $6,800 per month in contractor fees.</li>
+                    <li>Engineered automated marketing and list-hygiene flows to manage engagement for over 80,000 daily contacts, significantly improving data quality and campaign performance.</li>
+                    <li>Automated daily administrative functions, reducing monthly energy and labor costs by over $400.</li>
+                    <li>Executed two end-to-end office relocations with zero downtime or loss of productivity.</li>
+                    <li>Designed and deployed secure, scalable REST APIs and CI/CD pipelines.</li>
+                    <li>Managed all aspects of IT infrastructure across multiple locations, from structured cabling and
+                        VoIP systems, to servers, CRMs, asset management, and building security.</li>
                     <li>Led development and support teams, collaborating with other departments to identify bottlenecks
-                        and deploy automated solutions that increased efficiency and ROI.</li>
-                    <li>Oversaw technical compliance, documentation, and system interoperability across departments.
+                        and deploy automated solutions that increased efficiency and ROI.
                     </li>
+                    <li>Oversaw technical compliance, documentation, and system interoperability across departments.                    </li>
                     <li>Administered and customized CRM systems (Salesforce, Keap, GoHighLevel, HubSpot, Maropost),
-                        integrated third-party APIs, and executed high-volume marketing automations.</li>
+                        integrated third-party APIs, and executed high-volume marketing automations.
+                    </li>
                     <li>Designed and coded custom utilities, integrations, and browser extensions to streamline employee
-                        workflows.</li>
+                        workflows.
+                    </li>
                 </ul>
             </article>
         </section>

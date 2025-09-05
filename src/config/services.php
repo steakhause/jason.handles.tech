@@ -40,8 +40,14 @@ return [
     'google_analytics' => [
         'tracking_id' => env('GOOGLE_ANALYTICS_TRACKING_ID'),
     ],
+    'facebook' => [
+        'pixel_id' => env('FACEBOOK_PIXEL_ID'),
+    ],
     'linkedin' => [
         'url' => env('LINKEDIN_URL', 'https://www.linkedin.com/in/your-profile'),
-    ]
+    ],
+    'github' => [
+        'url' => env('GITHUB_URL', 'https://github.com'),
+    ],
 
 ];

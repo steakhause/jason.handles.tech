@@ -45,11 +45,11 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '24157061627318479');
+        fbq('init', '{{ config('services.facebook.pixel_id') }}');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=24157061627318479&ev=PageView&noscript=1" /></noscript>
+            src="https://www.facebook.com/tr?id={{ config('services.facebook.pixel_id') }}&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
     @endenv
 
