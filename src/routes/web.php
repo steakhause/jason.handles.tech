@@ -36,9 +36,13 @@ Route::middleware('auth')->group(function () {
 
     Route::view('/resume-builder', 'dashboard')->name('resume.builder');
 
+    Route::get('/media-agent', function () {
+        return view('media-agent-app-layout');
+    })->name('media-agent');
+
     Route::post('/documents/user-info', [DocumentController::class, 'storeUserInfo'])
         ->name('documents.userInfo.store');
-        
+
     Route::post('/n8n-chats', [N8nChatController::class, 'store'])
         ->name('n8n_chats.store');
 
@@ -47,4 +51,3 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['verified'])->group(function () {});
 });
 require __DIR__ . '/auth.php';
-

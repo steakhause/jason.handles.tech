@@ -48,6 +48,10 @@ return [
     ],
     'github' => [
         'url' => env('GITHUB_URL', 'https://github.com'),
-    ],
+    ],'
+    n8n' => [
+        'url' => env('WEBHOOK_URL', 'https://n8n.yourdomain.com'),
+],
+
 
 ];

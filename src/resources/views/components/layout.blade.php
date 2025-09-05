@@ -1,3 +1,4 @@
+@props(['title' => null])
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ $title ?? 'Welcome' }}</title>
+    <title>{{ trim(($title ? $title.' – ' : '').config('app.name')) }}</title>
 
     @env('production')
     <!-- Google tag (gtag.js) -->
@@ -43,7 +44,8 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '{{ config('services.facebook.pixel_id') }}');
+        fbq('init', '{{ config('
+            services.facebook.pixel_id ') }}');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -67,10 +69,8 @@
 </head>
 
 <body class="h-full bg-stone-800 text-white">
-    <div class="min-h-full">
-        <x-boxed-nav></x-boxed-nav>
-        {{ $slot }}
-    </div>
+    {{ $header ?? '' }}
+    {{ $slot }}
     @stack('scripts')
 </body>
 
