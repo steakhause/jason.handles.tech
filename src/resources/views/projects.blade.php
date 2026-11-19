@@ -1,104 +1,53 @@
-<x-guest-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-stone-300 leading-tight">
-            Personal Projects
-        </h2>
-    </x-slot>
-
-    <div class="py-8 sm:py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-stone-800 text-stone-100 shadow-sm rounded-xl overflow-hidden">
-                <!-- Intro -->
-                <div class="p-6 sm:p-8">
-                    <div class="space-y-4">
-                        <p class="text-stone-300">
-                            Welcome!
-                        </p>
-                        <p class="text-stone-400">
-                            Thank you for taking the time to review my site.
-                        </p>
-                        <p class="text-stone-400">
-                            Here you'll find demos of my personal projects and an overview of the infrastructure I run through Handles Tech LLC.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Content: text + video -->
-                <div class="border-t border-stone-700">
-                    <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start">
-                        <!-- Left column (details) -->
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-semibold text-stone-200">
-                                <a href="{{ route('resume.builder') }}" class="hover:underline">
-                                    AI Resume Builder
-                                </a>
-                            </h3>
-                            <p class="text-stone-400">
-                                This demo showcases a professional AI job coach that streamlines the arduous job-search process.
-                            </p>
-                            <p class="text-stone-400"> Users upload their resume and a kitchen-sink list of skills and experience at sign up. Job descriptions can then be directly pasted into the chat. Using Google Gemini 2.5 Flash, the agent evaluates the full background, prioritizes role-aligned strengths, and produces an ATS-aware resume and cover letter tailored to the posting. A supporting stack—Postgres for persistence, Google Drive/Docs APIs for document creation, and SMTP for email—coordinates storage, formatting, and delivery, so candidates iterate faster and submit higher-quality applications with less effort.
-                            </p>
-                        </div>
-
-                        <!-- Right column (responsive video) -->
-                        <div>
-                            <figure class="w-full">
-                                <!-- Aspect-ratio wrapper keeps video proportional -->
-                                <div class="aspect-video w-full overflow-hidden rounded-lg ring-1 ring-stone-700/60">
-                                    <iframe
-                                        id="demo-video"
-                                        class="w-full h-full"
-                                        src="https://www.youtube.com/embed/FnM87Gmg07I"
-                                        title="Demo video"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        allowfullscreen>
-                                    </iframe>
-                                </div>
-                                <!--<figcaption class="mt-2 text-sm text-stone-400">
-                                    If the video doesn't play, try refreshing or check your network connection.
-                                </figcaption>-->
-                            </figure>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Handles Tech LLC: Independent Projects -->
-                <div class="border-t border-stone-700">
-                    <div class="p-6 sm:p-8 space-y-4">
-                        <h3 class="text-lg font-semibold text-stone-200">
-                            Handles Tech LLC: Independent Projects
-                        </h3>
-                        <p class="text-stone-400">
-                            A self-hosted lab that I design, build, and run myself. I treat it as production, and it's where I prove out tools before I use them at work.
-                        </p>
-                        <ul class="list-disc pl-6 space-y-2 text-stone-400">
-                            <li><strong class="text-stone-300">LLM gateway:</strong> a LiteLLM gateway serving several apps, routing between local GPU models and cloud models with fallback and per-client keys.</li>
-                            <li><strong class="text-stone-300">RAG and evaluation:</strong> retrieval over my technical documentation, plus a model-evaluation harness that scores models before they're promoted.</li>
-                            <li><strong class="text-stone-300">AI agents:</strong> an infrastructure triage agent that assesses alerts and reports on security, a personal assistant agent, and local voice tools (speech-to-text and Piper text-to-speech).</li>
-                            <li><strong class="text-stone-300">Virtualization and storage:</strong> a Proxmox cluster with TrueNAS ZFS storage, including capacity planning, deduplication, and automated media transcoding.</li>
-                            <li><strong class="text-stone-300">Security:</strong> OpenBao secrets management, nightly Trivy container CVE scanning with alerting, firewall segmentation, and hands-on incident response.</li>
-                            <li><strong class="text-stone-300">Services and automation:</strong> a self-hosted mail server with replication, Nextcloud, reverse proxy with TLS, n8n workflows, and Home Assistant with Frigate NVR.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 
-                <div class="border-t border-stone-700 px-6 sm:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-                    <div class="flex gap-3">
-                        <a href="{{ url()->previous() }}"
-                            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-700 hover:bg-stone-600 text-stone-100">
-                            Go Back
-                        </a>
-                        <a href="{{ route('dashboard') }}"
-                            class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-stone-100 text-stone-900 hover:bg-white">
-                            Dashboard
-                        </a>
-                    </div>
-                </div>
-                -->
-            </div>
+<x-site title="Projects · Jason Ryszka" description="Independent projects by Jason Ryszka (Handles Tech LLC): a self-hosted LLM platform, an infrastructure and security lab, and an AI resume builder.">
+    <section class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div class="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+            <p class="text-sm font-semibold uppercase tracking-wider text-red-600">Handles Tech LLC</p>
+            <h1 class="mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl dark:text-white">Independent projects</h1>
+            <p class="mt-4 max-w-2xl text-lg text-stone-600 dark:text-stone-400">
+                I design, build and run my own lab, and I treat it as production. It's where I try out tools before I use them at work.
+            </p>
         </div>
+    </section>
+
+    <div class="mx-auto max-w-5xl space-y-10 px-4 py-14 sm:px-6">
+        {{-- AI Resume Builder --}}
+        <article class="grid gap-8 rounded-xl border border-stone-200 bg-white p-6 sm:p-8 md:grid-cols-2 dark:border-stone-800 dark:bg-stone-900">
+            <div>
+                <h2 class="text-xl font-semibold text-stone-900 dark:text-white">AI Resume Builder</h2>
+                <p class="mt-3 text-stone-600 dark:text-stone-400">
+                    A demo AI job coach. Candidates sign up with their resume and a full list of their skills and experience, then paste in a job description. The agent picks out the strengths that fit the role and writes a tailored resume and cover letter that pass applicant tracking systems.
+                </p>
+                <ul class="mt-4 flex flex-wrap gap-2 text-sm">
+                    @foreach (['Laravel', 'n8n', 'Gemini 2.5 Flash', 'PostgreSQL', 'Google Docs & Drive APIs', 'SMTP'] as $t)
+                        <li class="rounded-full bg-stone-100 px-3 py-1 text-stone-700 dark:bg-stone-800 dark:text-stone-300">{{ $t }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="aspect-video w-full overflow-hidden rounded-lg ring-1 ring-stone-200 dark:ring-stone-700">
+                <iframe class="h-full w-full" src="https://www.youtube-nocookie.com/embed/FnM87Gmg07I" title="AI Resume Builder demo video"
+                    loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </article>
+
+        {{-- LLM platform --}}
+        <article class="rounded-xl border border-stone-200 bg-white p-6 sm:p-8 dark:border-stone-800 dark:bg-stone-900">
+            <h2 class="text-xl font-semibold text-stone-900 dark:text-white">Self-hosted LLM platform</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-stone-700 dark:text-stone-300">
+                <li>A LiteLLM gateway serving several apps. It routes between local GPU models and cloud models, with fallback and a separate key for each client.</li>
+                <li>RAG over my technical documentation, plus an evaluation harness that scores models on real tasks before I promote them.</li>
+                <li>AI agents for infrastructure triage and personal assistance, and local voice tools for speech-to-text and Piper text-to-speech.</li>
+            </ul>
+        </article>
+
+        {{-- Infra & security --}}
+        <article class="rounded-xl border border-stone-200 bg-white p-6 sm:p-8 dark:border-stone-800 dark:bg-stone-900">
+            <h2 class="text-xl font-semibold text-stone-900 dark:text-white">Infrastructure &amp; security lab</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-stone-700 dark:text-stone-300">
+                <li>A Proxmox virtualization cluster with TrueNAS ZFS storage, including capacity planning, deduplication and automated media transcoding.</li>
+                <li>OpenBao secrets management, nightly Trivy container CVE scanning with alerts, firewall segmentation, and hands-on incident response.</li>
+                <li>A self-hosted mail server with replication, Nextcloud, a TLS reverse proxy, n8n workflows, and Home Assistant with Frigate NVR.</li>
+                <li>This site is self-hosted too: Laravel in Docker. Pushing a branch deploys it to a review mirror, and merging to master deploys it to production.</li>
+            </ul>
+        </article>
     </div>
-</x-guest-layout>
+</x-site>

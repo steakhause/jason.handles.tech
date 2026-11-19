@@ -8,8 +8,10 @@ use App\Http\Controllers\DocumentController;
 
 // ---------- Public Routes ----------
 Route::get('/', function () {
-    $skills = SkillsController::data();
-    return view('index', compact('skills'));
+    return view('index', [
+        'skills' => SkillsController::core(),
+        'platforms' => SkillsController::platforms(),
+    ]);
 })->name('index');
 
 Route::get('/projects', function () {
@@ -17,7 +19,7 @@ Route::get('/projects', function () {
 })->name('projects');
 
 Route::get('/resume', function () {
-    return view('resume');
+    return view('resume', ['skills' => SkillsController::core()]);
 })->name('resume');
 
 
