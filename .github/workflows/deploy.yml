@@ -1,8 +1,10 @@
 name: Deploy to prod
 
+# Deploys are handled by the n8n CI/CD workflow (GitHub push trigger):
+# master -> prod deploy.sh, other branches -> dev mirror deploy-dev.sh.
+# Kept as a manual fallback only, so a merge doesn't deploy twice.
 on:
-  push:
-    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   deploy:
