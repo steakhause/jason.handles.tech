@@ -1,889 +1,207 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-    @env('production')
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google_analytics.tracking_id') }}">
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Ryszka · Resume</title>
+    <meta name="description" content="Resume of Jason Ryszka: Technology Leader, Automation & AI Systems Engineer.">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet">
+    @include('partials.analytics')
+    <style>
+        :root {
+            --ink: #1c1917;
+            --muted: #57534e;
+            --rule: #d6d3d1;
+            --accent: #dc2626;
         }
 
-        gtag('js', new Date());
+        * { box-sizing: border-box; }
 
-        gtag('config', '{{ config('services.google_analytics.tracking_id') }}');
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '24157061627318479');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=24157061627318479&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    @endenv
-    <style type="text/css">
-        @import url(https://themes.googleusercontent.com/fonts/css?kit=3qINvnjb346LubKDfLRn69t6G6Z1RrRfgULZ1AHo7mPOfsfM6rvuuu7h1pY3r_-A);
-
-        html {
-            background-color: #000000
-        }
+        html { background: #e7e5e4; }
 
         body {
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .lst-kix_j0jhv38vzqbt-7>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_dfan2ie4mj27-1>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-6>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_dfan2ie4mj27-0>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-4>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-5>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-2>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_dfan2ie4mj27-4>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_dfan2ie4mj27-6>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-3>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_dfan2ie4mj27-5>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_dfan2ie4mj27-2>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-0>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-1>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_dfan2ie4mj27-3>li:before {
-            content: "\0025cf   "
-        }
-
-        ul.lst-kix_p4228eoj2c1z-3 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-4 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-5 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-6 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-7 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-8 {
-            list-style-type: none
-        }
-
-        .lst-kix_9rvhrxtbuwjn-8>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-6>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-7>li:before {
-            content: "\0025cb   "
-        }
-
-        ul.lst-kix_p4228eoj2c1z-0 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-1 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_p4228eoj2c1z-2 {
-            list-style-type: none
-        }
-
-        .lst-kix_9rvhrxtbuwjn-2>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-3>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-0>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-1>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-4>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_9rvhrxtbuwjn-5>li:before {
-            content: "\0025a0   "
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-0 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-2 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-1 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-4 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-3 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-6 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-5 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-8 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_j0jhv38vzqbt-7 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-8 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-6 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-7 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-4 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-5 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-2 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-3 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_dfan2ie4mj27-0 {
-            list-style-type: none
-        }
-
-        .lst-kix_p4228eoj2c1z-1>li:before {
-            content: "\0025cb   "
-        }
-
-        ul.lst-kix_dfan2ie4mj27-1 {
-            list-style-type: none
-        }
-
-        .lst-kix_p4228eoj2c1z-0>li:before {
-            content: "\0025cf   "
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-8 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-7 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-6 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-5 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-4 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-3 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-2 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-1 {
-            list-style-type: none
-        }
-
-        ul.lst-kix_9rvhrxtbuwjn-0 {
-            list-style-type: none
-        }
-
-        .lst-kix_p4228eoj2c1z-8>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_dfan2ie4mj27-8>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_p4228eoj2c1z-7>li:before {
-            content: "\0025cb   "
-        }
-
-        li.li-bullet-0:before {
-            margin-left: -18pt;
-            white-space: nowrap;
-            display: inline-block;
-            min-width: 18pt
-        }
-
-        .lst-kix_dfan2ie4mj27-7>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_p4228eoj2c1z-5>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_p4228eoj2c1z-4>li:before {
-            content: "\0025cb   "
-        }
-
-        .lst-kix_p4228eoj2c1z-6>li:before {
-            content: "\0025cf   "
-        }
-
-        .lst-kix_p4228eoj2c1z-2>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_j0jhv38vzqbt-8>li:before {
-            content: "\0025a0   "
-        }
-
-        .lst-kix_p4228eoj2c1z-3>li:before {
-            content: "\0025cf   "
-        }
-
-        ol {
             margin: 0;
-            padding: 0
-        }
-
-        table td,
-        table th {
-            padding: 0
-        }
-
-        .c7 {
-            margin-left: 36pt;
-            padding-top: 4pt;
-            padding-left: 0pt;
-            padding-bottom: 0pt;
-            line-height: 1.2;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        .c3 {
-            margin-left: 36pt;
-            padding-top: 4pt;
-            padding-left: 0pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        .c16 {
-            color: #666666;
-            font-weight: 400;
-            text-decoration: none;
-            vertical-align: baseline;
-            font-size: 12pt;
-            font-family: "Proxima Nova";
-            font-style: italic
-        }
-
-        .c15 {
-            margin-left: 36pt;
-            padding-top: 4pt;
-            padding-left: 0pt;
-            padding-bottom: 0pt;
-            line-height: 1.15;
-            text-align: left
-        }
-
-        .c18 {
-            padding-top: 24pt;
-            padding-bottom: 10pt;
-            line-height: 1.0;
-            page-break-after: avoid;
-            text-align: left
-        }
-
-        .c35 {
-            padding-top: 6pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            page-break-after: avoid;
-            text-align: left
-        }
-
-        .c29 {
-            padding-top: 24pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            page-break-after: avoid;
-            text-align: left
-        }
-
-        .c37 {
-            font-size: 18pt;
-            font-family: "Proxima Nova";
-            color: #00ab44;
-            font-weight: 400
-        }
-
-        .c4 {
-            font-size: 8pt;
-            font-family: "Times New Roman";
-            color: #666666;
-            font-weight: 400
-        }
-
-        .c14 {
-            color: #666666;
-            font-weight: 400;
+            font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+            color: var(--ink);
             font-size: 10pt;
-            font-family: "Proxima Nova"
+            line-height: 1.38;
         }
 
-        .c27 {
-            padding-top: 10pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            text-align: left
+        .toolbar {
+            max-width: 8.5in;
+            margin: 24px auto 12px;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
         }
 
-        .c26 {
-            padding-top: 24pt;
-            padding-bottom: 8pt;
-            line-height: 1.0;
-            text-align: left
+        .toolbar a { color: var(--ink); text-decoration: none; font-weight: 600; }
+        .toolbar a.primary { background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 6px; }
+
+        .page {
+            background: #fff;
+            max-width: 8.5in;
+            margin: 0 auto 48px;
+            padding: 0.55in 0.6in;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
         }
 
-        .c38 {
-            padding-top: 24pt;
-            padding-bottom: 10pt;
-            line-height: 1.0;
-            text-align: left
-        }
-
-        .c25 {
-            color: #000000;
-            font-weight: 400;
-            font-size: 11pt;
-            font-family: "Arial"
-        }
-
-        .c24 {
-            color: #666666;
-            font-weight: 400;
-            font-size: 18pt;
-            font-family: "Proxima Nova"
-        }
-
-        .c23 {
-            padding-top: 0pt;
-            padding-bottom: 0pt;
-            line-height: 1.15;
-            text-align: left
-        }
-
-        .c36 {
-            font-weight: 400;
-            font-size: 16pt;
-            font-family: "Arial";
-            font-style: normal
-        }
-
-        .c11 {
-            color: #000000;
-            font-weight: 400;
-            font-size: 11pt;
-            font-family: "Proxima Nova"
-        }
-
-        .c1 {
-            font-size: 8pt;
-            font-family: "Times New Roman";
-            font-style: italic;
-            font-weight: 400
-        }
-
-        .c17 {
-            padding-top: 4pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            text-align: left
-        }
-
-        .c33 {
-            color: #666666;
-            font-weight: 400;
-            font-size: 11pt;
-            font-family: "Proxima Nova"
-        }
-
-        .c0 {
-            padding-top: 0pt;
-            padding-bottom: 0pt;
-            line-height: 1.0;
-            text-align: left
-        }
-
-        .c28 {
-            font-size: 8pt;
-            font-weight: 400;
-            font-family: "Times New Roman"
-        }
-
-        .c20 {
-            color: #434343;
-            font-weight: 400;
-            font-family: "Proxima Nova"
-        }
-
-        .c8 {
-            font-size: 8pt;
-            font-weight: 700;
-            font-family: "Times New Roman"
-        }
-
-        .c34 {
-            vertical-align: baseline;
-            font-size: 11pt;
-            font-style: normal
-        }
-
-        .c32 {
-            color: #000000;
-            text-decoration: none;
-            vertical-align: baseline
-        }
-
-        .c21 {
-            text-decoration-skip-ink: none;
-            -webkit-text-decoration-skip: none;
-            text-decoration: underline
-        }
-
-        .c10 {
-            text-decoration: none;
-            vertical-align: baseline;
-            font-style: normal
-        }
-
-        .c31 {
-            background-color: #ffffff;
-            max-width: 468pt;
-            padding: 72pt 72pt 72pt 72pt
-        }
-
-        .c30 {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        .c2 {
-            font-weight: 700;
-            font-family: "Proxima Nova"
-        }
-
-        .c13 {
-            font-size: 12pt;
-            color: #353744
-        }
-
-        .c12 {
-            color: #53bb84;
-            font-size: 14pt
-        }
-
-        .c5 {
-            padding: 0;
-            margin: 0
-        }
-
-        .c9 {
-            orphans: 2;
-            widows: 2
-        }
-
-        .c6 {
-            font-size: 14pt;
-            color: #00ab44
-        }
-
-        .c39 {
-            font-style: normal
-        }
-
-        .c19 {
-            height: 11pt
-        }
-
-        .c22 {
-            font-style: italic
-        }
-
-        .title {
-            padding-top: 0pt;
-            color: #000000;
-            font-size: 26pt;
-            padding-bottom: 3pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        .subtitle {
-            padding-top: 0pt;
-            color: #666666;
-            font-size: 15pt;
-            padding-bottom: 16pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        li {
-            color: #000000;
-            font-size: 11pt;
-            font-family: "Arial"
-        }
-
-        p {
-            margin: 0;
-            color: #000000;
-            font-size: 11pt;
-            font-family: "Arial"
-        }
-
-        h1 {
-            padding-top: 20pt;
-            color: #000000;
-            font-size: 20pt;
-            padding-bottom: 6pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
+        header h1 { margin: 0; font-size: 22pt; line-height: 1.1; letter-spacing: -0.01em; }
+        header .headline { margin: 2px 0 6px; font-size: 12pt; font-weight: 600; color: var(--accent); }
+        header .contact { margin: 0; color: var(--muted); font-size: 9.5pt; }
+        header .contact a { color: var(--muted); text-decoration: none; }
 
         h2 {
-            padding-top: 18pt;
-            color: #000000;
-            font-size: 16pt;
-            padding-bottom: 6pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
+            margin: 14px 0 6px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--rule);
+            font-size: 10.5pt;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink);
         }
 
-        h3 {
-            padding-top: 16pt;
-            color: #434343;
-            font-size: 14pt;
-            padding-bottom: 4pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
+        p { margin: 0 0 4px; }
+
+        .skills { margin: 0; padding: 0; list-style: none; }
+        .skills li { margin-bottom: 2px; }
+        .skills b { font-weight: 600; }
+
+        .job { margin-bottom: 9px; break-inside: avoid; }
+        .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+        .job-head h3 { margin: 0; font-size: 10.5pt; }
+        .job-head h3 span { font-weight: 400; color: var(--muted); }
+        .job-head .dates { white-space: nowrap; color: var(--muted); font-size: 9.5pt; }
+        .job .lead { margin: 2px 0 3px; color: var(--muted); }
+
+        ul.bullets { margin: 2px 0 0; padding-left: 16px; }
+        ul.bullets li { margin-bottom: 2px; }
+
+        .earlier li { margin-bottom: 3px; }
+
+        @media (max-width: 640px) {
+            .page { padding: 24px 16px; }
+            .job-head { flex-direction: column; gap: 0; }
         }
 
-        h4 {
-            padding-top: 14pt;
-            color: #666666;
-            font-size: 12pt;
-            padding-bottom: 4pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        h5 {
-            padding-top: 12pt;
-            color: #666666;
-            font-size: 11pt;
-            padding-bottom: 4pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
-
-        h6 {
-            padding-top: 12pt;
-            color: #666666;
-            font-size: 11pt;
-            padding-bottom: 4pt;
-            font-family: "Arial";
-            line-height: 1.15;
-            page-break-after: avoid;
-            font-style: italic;
-            orphans: 2;
-            widows: 2;
-            text-align: left
-        }
+        @page { size: Letter; margin: 0.5in 0.55in; }
 
         @media print {
-            html {
-                background: #ffffff
-            }
+            html { background: #fff; }
+            .toolbar { display: none; }
+            .page { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+            a { color: inherit; }
         }
     </style>
 </head>
 
-<body class="c31 doc-content">
-    <h2 class="c9 c35" id="h.5x0d5h95i329"><span class="c32 c36">Jason Ryszka</span></h2>
-    <p class="c0 c9 subtitle" id="h.sbziogryzzql"><span class="c37">Technology Leader | Automation &amp; AI Systems Engineer</span></p>
-    <p class="c0 c9"><span class="c20 c21"><a class="c30"
-                href="mailto:jason@handles.tech">jason@handles.tech</a></span><span class="c20">&nbsp;</span><span
-            class="c10 c33">| (480) 442-3138</span></p>
-    <p class="c0 c9"><span class="c20 c21"><a class="c30"
-                href="https://www.google.com/url?q=https://jason.handles.tech&amp;sa=D&amp;source=editors&amp;ust=1755200695964807&amp;usg=AOvVaw0orq-oVaE1fmnVy_eAKzkp">https://Jason.Handles.Tech</a></span>
-    </p>
-    <h1 class="c9 c18" id="h.inx73jfg7qti"><span class="c2 c6">Professional Summary</span><span class="c11 c10"><br>Technology leader with more than ten years running technology for a growing
-            education company, now its CTO and only technology employee. I own everything from daily support to system
-            architecture. I connect CRM, payment, support, and reporting systems through APIs and workflow automation,
-            and I build AI agents that work as real teammates under human sign-off. My background runs from telecom and
-            network field work through ERP and SQL data engineering to full-stack development.</span></h1>
-    <h1 class="c9 c29" id="h.ekedb43bqnkb"><span class="c10 c2 c6">Key Achievements</span></h1>
-    <ul class="c5 lst-kix_j0jhv38vzqbt-0 start">
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Developed full stack event management platform, saving over
-                $7,000 per event and sped venue ingress times by more than 90+ minutes per 1K attendees.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Automated daily administrative office functions, saving
-                over $400/month through reduced energy and labor costs.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Engineered automated fulfillment pipelines for over 200
-                physical and digital products.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Assumed roles of third party IT and Software development
-                contractors, saving $6,800 per month.</span></li>
-        <li class="c9 c15 li-bullet-0"><span class="c11 c10">Created automated marketing and list hygiene flows handling
-                engagement for 80,000+ daily contacts.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Executed two office relocations with zero downtime or
-                productivity loss.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Built an AI teammate with specialist sub-agents that scopes,
-                builds, tests, and documents automations end to end under human sign-off.</span></li>
-        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Rebuilt manufacturing receiving with QR and barcode scanning
-                straight into Syspro ERP, with automatic stock-location, QC, and label printing.</span></li>
-    </ul>
-    <h1 class="c29 c9" id="h.d3z10zhiarma"><span class="c10 c2 c6">SKILLS</span></h1>
-    <ul class="c5 lst-kix_j0jhv38vzqbt-0">
-        <li class="c7 li-bullet-0"><span class="c2">Languages: </span><span class="c11 c10">PHP (OOP), JavaScript (OOP), SQL / T-SQL, VBA, HTML, CSS, Bash, JSON, XML, YAML</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Frameworks/Libraries: </span><span class="c11 c10">Laravel, WordPress, TailwindCSS, Vite, jQuery, Bootstrap</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Web &amp; API Tech: </span><span class="c11 c10">REST, SOAP, XML-RPC, WebSockets, Webhooks, SSO, 2FA, OAuth2, JWT</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Databases: </span><span class="c11 c10">Microsoft SQL Server, MySQL, PostgreSQL, SQLite, MS Access, MongoDB, Redis</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">AI &amp; LLM: </span><span class="c11 c10">Claude / Claude Code, OpenAI, Gemini, local LLMs, LiteLLM, AI agents, MCP servers, RAG, model evaluation</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Networking &amp; Systems: </span><span class="c11 c10">Linux (RHEL, CLI), Proxmox, TrueNAS, DNS (Bind9), Apache, Nginx, Traefik, NPM, TCP/IP, UniFi, Omada</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">DevOps &amp; Tools: </span><span class="c11 c10">Docker, Git, GitLab, GitHub Actions, SVN, AWS, DigitalOcean, CI/CD</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Monitoring &amp; Security: </span><span class="c11 c10">OpenBao, Trivy, Sucuri WAF, Cloudflare, Uptime Kuma, NetData, SolarWinds, OWASP practices, PCI compliance</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">CRM &amp; Automation: </span><span class="c11 c10">Keap, Salesforce (incl. Marketing Cloud), GoHighLevel, HubSpot, Maropost, Klaviyo, n8n, Node-RED, Zapier</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Payments &amp; Commerce: </span><span class="c11 c10">Stripe, Authorize.Net, Chase Paymentech, Whop, Sticky.io, CustomerHub, ShipStation</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Communications &amp; Events: </span><span class="c11 c10">Twilio, Vonage, BroadWorks XSI, Mailgun, Slack API, Zoom, Aevent, WebinarJam, OnceHub</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Operations &amp; ERP: </span><span class="c11 c10">Zendesk, Asana, Teamwork, BoldSign, Typeform, Syspro (SOAP API), BarTender</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Analytics &amp; Reporting: </span><span class="c11 c10">Google Analytics, GTM, Facebook Pixel, Hyros, Wicked Reports, Tune, Hotjar, Periscope</span></li>
-    </ul>
-    <h1 class="c9 c26" id="h.5sh58lh512k2"><span class="c2 c6">EXPERIENCE</span></h1>
-    <h2 class="c27 c9"><span class="c2 c13">Clever Investor, Tempe AZ </span><span class="c16">- Chief Technology Officer</span></h2>
-    <p class="c17 c9"><span class="c14 c10">April 2026 - Present</span></p>
-    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Sole technology employee, responsible for all technical operations: daily support, systems administration, vendor and platform management, security, and full system design and build-out.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools that make every department more productive.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Connect the CRM, marketing automation, checkout, payment processors, support desk, and reporting database into one coordinated stack (Keap, GoHighLevel, CustomerHub, Zendesk, n8n, SQL).</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built an AI teammate that takes a request through research, scoping, approval, build, and testing, and records every change in version control and the project tracker. Specialist sub-agents handle scoping, building, data analysis, and QA. Credentials stay in a vault, and risky actions need human sign-off.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built CLVR Controller, a registry of every system, workflow, script, and connection, with stack-wide health checks and a knowledge service for impact and data-lineage questions.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Current initiatives include a secure checkout and payment-link portal, a chargeback-evidence and collections system, GoHighLevel sales pipelines integrated with Keap, and automated product fulfillment and access control.</span></li>
-    </ul>
-    <h2 class="c27 c9"><span class="c2 c13">Coxreels, Tempe AZ </span><span class="c16">- Data Engineer</span></h2>
-    <p class="c17 c9"><span class="c14 c10">October 2025 - April 2026</span></p>
-    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built MS Access and Syspro ERP tools and integrations on MSSQL and Syspro's SOAP API.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Rebuilt receiving with QR and barcode scanning that enters materials, parts, and products directly into Syspro. It categorizes each shipment for stock location, QC, and inventory tracking, and auto-prints BarTender labels.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built a regulatory-compliance utility for assemblies, sub-assemblies, and components, with new-part entry into Syspro and chemical-composition data pulled from Assent.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built a QC tracking tool and dashboard that covers each issue from identification through rework or return. It flags suspect materials, calculates rework cost, issues RMAs, and produces weekly and monthly QC metrics.</span></li>
-    </ul>
-    <h2 class="c27 c9"><span class="c2 c13">Clever Investor, Tempe AZ </span><span class="c16">- Chief Technology Officer</span></h2>
-    <p class="c17 c9"><span class="c14 c10">August 2015 - April 2025</span></p>
-    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Advanced from Customer Service Rep to Technical Support, Senior Technical Support Specialist, Senior IT Agent, and then CTO.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Led all technical aspects of product development and lifecycle, ensuring accurate documentation and systems interoperability.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built a full-stack event management platform that saved over $7,000 per event and cut venue ingress by 90+ minutes per 1,000 attendees.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Brought third-party IT and software development work in-house, saving $6,800 per month.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built automated fulfillment pipelines for 200+ physical and digital products, and marketing and list-hygiene flows for 80,000+ daily contacts.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Designed, coded, and deployed secure, scalable REST APIs and integrations with third-party APIs.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Managed IT and software development teams across multiple concurrent projects.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Enforced legal and compliance standards across technology and marketing.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Administered all building infrastructure and IT assets for remote and in-person staff: ticketing, VoIP, building security, IP cameras/NVR, servers, and networking. Ran two office relocations with zero downtime.</span></li>
-    </ul>
-    <h2 class="c27 c9"><span class="c2 c13">Handles Tech LLC </span><span class="c16">- Owner / Engineer (independent projects)</span></h2>
-    <p class="c17 c9"><span class="c14 c10">Ongoing</span></p>
-    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Run a self-hosted LiteLLM gateway that routes several apps between local GPU models and cloud models, plus RAG over technical docs and a model-evaluation harness.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Built AI agents for infrastructure triage and personal assistance, and local voice tools for speech-to-text and text-to-speech.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Operate a Proxmox and TrueNAS ZFS environment with OpenBao secrets management, nightly Trivy CVE scanning, a self-hosted mail server, n8n, and Home Assistant.</span></li>
-    </ul>
-    <h2 class="c9 c27" id="h.25ksbxwbal7a"><span class="c2 c13">Black Box Network Services, Chandler AZ </span><span
-            class="c16">- Network Specialist</span></h2>
-    <p class="c17 c9"><span class="c10 c14">January 2015 - August 2015</span></p>
-    <ul class="c5 lst-kix_p4228eoj2c1z-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Installed, tested, and repaired Ethernet, Coax, and fiber optic
-                cabling as well as data switches, routers, and racks in semiconductor manufacturing environments (Intel
-                &amp; Motorola)</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Worked in cleanroom data centers, contributing to large-scale
-                infrastructure projects.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Troubleshot and resolved network performance issues to maintain
-                optimal functionality.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Served as project manager for Installation and Repair
-                team.</span></li>
-    </ul>
-    <h2 class="c27 c9" id="h.qttiqnuhschn"><span class="c2 c13">Cox Communications, Tempe AZ </span><span class="c16">-
-            Installation &amp; Repair Technician</span></h2>
-    <p class="c17 c9"><span class="c14 c10">April 2008 - January 2015</span></p>
-    <ul class="c5 lst-kix_9rvhrxtbuwjn-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Utilized advanced tools to troubleshoot data issues in a HFC
-                network environment.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Installed and repaired video and data network services for
-                residential and business clients in the Phoenix, Mesa, Chandler, Tempe, and Gilbert area.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Performed TCP/IP Networking, IP-based services.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Provided technical support for end user equipment.</span></li>
-    </ul>
-    <h2 class="c27 c9" id="h.80chje887uil"><span class="c2 c13">AT&amp;T</span><span class="c16">&nbsp;-
-            Telecommunications Technician</span></h2>
-    <p class="c17 c9"><span class="c14 c10">April 2001 - January 2008</span></p>
-    <ul class="c5 lst-kix_9rvhrxtbuwjn-0">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Installed, repaired, and maintained voice and data services for
-                business and residential customers.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Serviced physical network infrastructure from the central
-                office to end user equipment.</span></li>
-        <li class="c3 li-bullet-0"><span class="c10 c11">Maintained security clearance to provide services to secure and
-                regulated facilities</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">TCP/IP networking, network configuration, and
-                troubleshooting.</span></li>
-    </ul>
-    <h1 class="c9 c38" id="h.pwnp1k6vsbh1"><span class="c2 c6 c10">EDUCATION</span></h1>
-    <p class="c0"><span class="c8">Purdue University Indianapolis </span><span class="c1">1997 - 1998</span><span
-            class="c8 c22">&nbsp;</span><span class="c1">Indianapolis, IN</span><span class="c8">&nbsp;</span><span
-            class="c28 c32 c39">&nbsp;</span></p>
-    <p class="c0"><span class="c4 c10">Electronics Engineering Technology</span></p>
-    <p class="c0"><span class="c8">Purdue University North Central</span><span class="c28">&nbsp;</span><span
-            class="c1">1996 - 1997</span><span class="c28">&nbsp;</span><span class="c1 c32">Westville, IN</span></p>
-    <p class="c0"><span class="c4 c10">Electronics Engineering Technology</span></p>
-    <p class="c0"><span class="c8">A.K Smith Career Center </span><span class="c1 c32">1992 - 1996 Michigan City, IN</span>
-    </p>
-    <p class="c0"><span class="c4 c10">Three years specialized vocational training in Electronics Engineering Technology
-        </span></p>
-    <p class="c0"><span class="c4">Residential Electrical, vocational training (1992 - 1993)</span></p>
-    <p class="c0 c19"><span class="c11 c10"></span></p>
-    <p class="c9 c19 c23"><span class="c10 c25"></span></p>
+<body>
+    <nav class="toolbar" aria-label="Resume actions">
+        <a href="{{ route('index') }}">← jason.handles.tech</a>
+        <a class="primary" href="/downloads/resume.pdf">Download PDF</a>
+    </nav>
+
+    <article class="page">
+        <header>
+            <h1>Jason Ryszka</h1>
+            <p class="headline">Technology Leader | Automation &amp; AI Systems Engineer</p>
+            <p class="contact">
+                Tempe, AZ · <a href="mailto:jason@handles.tech">jason@handles.tech</a> · (480) 442-3138 ·
+                <a href="https://www.linkedin.com/in/jason-ryszka">linkedin.com/in/jason-ryszka</a> ·
+                <a href="https://jason.handles.tech">jason.handles.tech</a>
+            </p>
+        </header>
+
+        <h2>Summary</h2>
+        <p>
+            Technology leader who builds the systems himself. I've spent more than ten years running technology for a growing education company,
+            and I'm now its CTO and only technology employee, responsible for everything from daily support to system architecture. I connect
+            CRM, payment, support and reporting systems with APIs and workflow automation, and I build AI agents that work as teammates under
+            human sign-off. My background runs from telecom and network field engineering through ERP and SQL data work to full-stack development.
+        </p>
+
+        <h2>Core Skills</h2>
+        <ul class="skills">
+            @foreach ($skills as $group => $items)
+                <li><b>{{ $group }}:</b> {{ implode(', ', $items) }}</li>
+            @endforeach
+        </ul>
+
+        <h2>Experience</h2>
+
+        <section class="job">
+            <div class="job-head">
+                <h3>Chief Technology Officer <span>· Clever Investor, Tempe, AZ</span></h3>
+                <span class="dates">Apr 2026 – Present</span>
+            </div>
+            <p class="lead">Sole technology employee. I own daily support, systems administration, vendors and platforms, security, and full system design and build-out.</p>
+            <ul class="bullets">
+                <li>Set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools for every department.</li>
+                <li>Connect the CRM, marketing automation, checkout, payment processors, support desk and reporting database into one stack (Keap, GoHighLevel, CustomerHub, Zendesk, n8n, SQL).</li>
+                <li>Built an AI teammate that takes requests through research, scoping, approval, build and testing. Specialist sub-agents handle scoping, automation, data analysis and QA, credentials stay in a vault, and risky actions need human sign-off.</li>
+                <li>Built CLVR Controller, a registry of every system, workflow, script and connection, with stack-wide health checks and a knowledge service for impact and data-lineage questions.</li>
+                <li>Current initiatives: a secure checkout and payment-link portal, chargeback evidence and collections automation, GoHighLevel pipelines integrated with Keap, and automated product fulfillment and access control.</li>
+            </ul>
+        </section>
+
+        <section class="job">
+            <div class="job-head">
+                <h3>Data Engineer <span>· Coxreels, Tempe, AZ</span></h3>
+                <span class="dates">Oct 2025 – Apr 2026</span>
+            </div>
+            <ul class="bullets">
+                <li>Built MS Access and Syspro ERP tools and integrations on MSSQL and Syspro's SOAP API for a manufacturer.</li>
+                <li>Rebuilt receiving with QR and barcode scanning straight into Syspro, including automatic stock-location and QC routing and BarTender label printing.</li>
+                <li>Built a regulatory-compliance tool with Assent chemical-composition data, and a QC tracking dashboard that flags suspect materials, calculates rework cost, issues RMAs and reports weekly and monthly metrics.</li>
+            </ul>
+        </section>
+
+        <section class="job">
+            <div class="job-head">
+                <h3>Chief Technology Officer <span>· Clever Investor, Tempe, AZ</span></h3>
+                <span class="dates">Aug 2015 – Apr 2025</span>
+            </div>
+            <p class="lead">Promoted from Customer Service Rep through Technical Support, Senior Technical Support Specialist and Senior IT Agent to CTO. Led the development and IT teams.</p>
+            <ul class="bullets">
+                <li>Built a full-stack event management platform that saved more than $7,000 per event and cut venue check-in by 90+ minutes per 1,000 attendees.</li>
+                <li>Brought all outside IT and software development work in-house, saving $6,800 a month.</li>
+                <li>Built automated fulfillment for 200+ physical and digital products, and marketing and list-hygiene flows for 80,000+ contacts a day.</li>
+                <li>Designed and deployed secure REST APIs, CI/CD pipelines, and integrations across Salesforce, Keap, HubSpot, GoHighLevel and Maropost.</li>
+                <li>Enforced legal and compliance standards across technology and marketing.</li>
+                <li>Ran IT across multiple locations, including servers, networking, VoIP, cabling, building security and two office moves with zero downtime.</li>
+            </ul>
+        </section>
+
+        <section class="job">
+            <div class="job-head">
+                <h3>Owner &amp; Engineer <span>· Handles Tech LLC (independent projects)</span></h3>
+                <span class="dates">Ongoing</span>
+            </div>
+            <ul class="bullets">
+                <li>Run a self-hosted LiteLLM gateway that routes several apps between local GPU and cloud models, with RAG, a model-evaluation harness and AI agents for infrastructure triage.</li>
+                <li>Operate a Proxmox and TrueNAS ZFS environment with OpenBao secrets management, nightly Trivy CVE scanning, a replicated mail server, and CI/CD through n8n.</li>
+            </ul>
+        </section>
+
+        <section class="job">
+            <div class="job-head">
+                <h3>Earlier Career <span>· Network &amp; telecom field engineering</span></h3>
+                <span class="dates">2001 – 2015</span>
+            </div>
+            <ul class="bullets earlier">
+                <li><b>Network Specialist, Black Box Network Services</b> (2015): built fiber and copper networks in Intel and Motorola cleanroom data centers, and project-managed the install team.</li>
+                <li><b>Installation &amp; Repair Technician, Cox Communications</b> (2008–2015): installed and troubleshot business and residential video and data services on an HFC network.</li>
+                <li><b>Telecommunications Technician, AT&amp;T</b> (2001–2008): maintained T1, ISDN, MPLS, DSL and fiber circuits from the central office to the customer, including in cleared secure facilities.</li>
+            </ul>
+        </section>
+
+        <h2>Education</h2>
+        <p>Purdue University: Electronics Engineering Technology coursework (1996–1998) · A.K. Smith Career Center: Electronics Engineering Technology and Residential Electrical vocational training (1992–1996)</p>
+    </article>
 </body>
 
 </html>

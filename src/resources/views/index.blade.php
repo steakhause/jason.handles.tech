@@ -1,268 +1,190 @@
-<x-layout>
-    <x-slot:title>
-        Jason Ryszka
-    </x-slot:title>
+<x-site>
+    {{-- HERO --}}
+    <section class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
+            <p class="text-sm font-medium uppercase tracking-wider text-red-600">Tempe, Arizona</p>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl dark:text-white">Jason Ryszka</h1>
+            <p class="mt-3 text-xl font-medium text-stone-700 sm:text-2xl dark:text-stone-300">Technology Leader | Automation &amp; AI Systems Engineer</p>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
+                I connect business systems, protect revenue, and put AI to work as a real teammate. I build these systems myself. I've spent more than ten years running technology for a growing education company, and I started out in telecom and network field work.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="/downloads/resume.pdf" class="rounded-md bg-red-600 px-5 py-3 font-medium text-white shadow-sm hover:bg-red-700">Download resume (PDF)</a>
+                <a href="mailto:jason@handles.tech" class="rounded-md border border-stone-300 px-5 py-3 font-medium text-stone-800 hover:border-stone-900 dark:border-stone-700 dark:text-stone-200 dark:hover:border-white">Email me</a>
+                <a href="{{ config('services.linkedin.url') }}" target="_blank" rel="noopener" class="rounded-md border border-stone-300 px-5 py-3 font-medium text-stone-800 hover:border-stone-900 dark:border-stone-700 dark:text-stone-200 dark:hover:border-white">LinkedIn</a>
+            </div>
 
-    <!--HERO SECTION-->
-    <x-full-page-section class="flex" background="/images/hero_2.png">
-        <div id="overlay" class="absolute inset-0 bg-stone-950/95 transition-colors duration-700"></div>
-
-        <div class="relative z-10 flex flex-col items-center space-y-4 text-red-500 text-center">
-            <h1 class="text-4xl md:text-4xl font-arkitech tracking-widest mx-10 [text-shadow:1px_2px_4px_#000]">JASON</h1>
-            <hr class="w-full border-red-500 border-t shadow-[1px_1px_4px_#000]">
-            <h2 class="text-2xl md:text-3xl font-arkitech tracking-wide mx-10 [text-shadow:1px_2px_4px_#000]">HANDLES TECH</h2>
-        </div>
-    </x-full-page-section>
-
-    <!--ABOUT ME SECTION-->
-    <x-default-section id="about-me" h1="JASON RYSZKA" h2="Technology Leader | Automation & AI Systems Engineer"
-        :quote="['Great things are done by a series of small things brought together.', 'Vincent Van Gogh']">
-
-        <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-start">
-            <section class="flex-2 block">
-                <h2 class="text-red-500 block text-2xl text-center">About Me</h2>
-                <p>
-                    I'm a technology leader who still builds the systems himself. For more than ten years I've run technology for a growing education company. Today I'm its Chief Technology Officer and its only technology employee, responsible for everything from daily support to system architecture, integrations and new platform builds.
-                </p>
-                <p class="mt-4">
-                    My work centers on connecting business systems through APIs and workflow automation, protecting revenue, and putting AI to work as a real teammate. That includes agents that research, plan, build and test automations under human sign-off. I pick the simplest solution the team can maintain, inside tools it already uses.
-                </p>
-                <p class="mt-4">
-                    My background runs from the physical layer up. I started in telecom and network field work and moved into data-center builds, server administration, ERP and SQL data engineering, and full-stack development. That range lets me design solutions that fit the infrastructure underneath them.
-                </p>
-            </section>
-            
-            <aside class="flex-1 min-w-[240px] whitespace-nowrap">
-                <h2 class="text-red-500 text-2xl">Contact Information</h2>
-                <ul class="text-sm space-y-2">
-                    <li>
-                        <a href="mailto:jason@handles.tech" class="hover:underline">
-                            Email: jason@handles.tech
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tel:+14804423138" class="hover:underline">
-                            Mobile: (480) 442-3138
-                        </a>
-                    </li>
-                    <li class="flex items-center space-x-4 pt-2">
-                        <!-- LinkedIn -->
-                        <a href="{{ config('services.linkedin.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24h5V7H0v17zm7.5-17h4.5v2.25h.06c.63-1.2 2.17-2.25 4.44-2.25 4.76 0 5.63 3.13 5.63 7.2V24h-5v-7.5c0-1.8-.03-4.12-2.5-4.12s-2.88 1.95-2.88 4v7.62H7.5V7z"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </aside>
-
-
-        </article>
-    </x-default-section>
-
-    <!--SKILLS SECTION-->
-    <x-default-section id="skills" class="bg-stone-950" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
-
-        @foreach (array_chunk($skills, 3) as $chunk)
-            <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-stretch text-2xl">
-                @foreach ($chunk as $skill)
-                    @include('partials.skills', $skill)
+            <dl class="mt-14 grid grid-cols-2 gap-6 border-t border-stone-200 pt-8 sm:grid-cols-4 dark:border-stone-800">
+                @foreach ([
+                    ['10+ years', 'leading technology end to end'],
+                    ['$6,800 / mo', 'saved by bringing IT and development in-house'],
+                    ['80,000+', 'contacts a day run through automated flows'],
+                    ['200+', 'products on automated fulfillment'],
+                ] as [$stat, $label])
+                    <div>
+                        <dt class="text-2xl font-bold text-stone-900 dark:text-white">{{ $stat }}</dt>
+                        <dd class="mt-1 text-sm text-stone-600 dark:text-stone-400">{{ $label }}</dd>
+                    </div>
                 @endforeach
-            </article>
-        @endforeach
+            </dl>
+        </div>
+    </section>
 
-    </x-default-section>
+    {{-- WHAT I DO --}}
+    <section id="about" class="scroll-mt-16 mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">What I do</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+            @foreach ([
+                ['Connect the business', 'I tie together the CRM, marketing automation, checkout, payment processors, support desk and reporting database with APIs and workflow automation, so data moves without anyone copying it by hand.'],
+                ['Protect revenue', 'Secure checkout and payment links, chargeback evidence automation, collections workflows, and access control that follows what people paid for.'],
+                ['Put AI to work', 'AI agents that research, plan, build and test automations under human sign-off, with credentials kept in a vault and every change recorded in version control.'],
+            ] as [$heading, $body])
+                <div class="rounded-xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900">
+                    <h3 class="font-semibold text-stone-900 dark:text-white">{{ $heading }}</h3>
+                    <p class="mt-2 text-stone-600 dark:text-stone-400">{{ $body }}</p>
+                </div>
+            @endforeach
+        </div>
+        <p class="mt-6 text-stone-600 dark:text-stone-400">My rule: pick the simplest thing the team can maintain, inside tools it already uses.</p>
+    </section>
 
-    <!--EMPLOYMENT HISTORY SECTION-->
+    {{-- EXPERIENCE --}}
+    <section id="experience" class="scroll-mt-16 border-y border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">Experience</h2>
 
-    <x-default-section id="employment" h1="Employment History" :quote='["The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.","Helen Keller"]'>
-        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Chief Technology Officer</h3>
-                    <p class="text-sm text-stone-400"><strong>Clever Investor</strong> - Tempe, AZ<br>
-                        <time class="text-xs text-stone-200" datetime="2026-04">April 2026</time> - <span class="text-xs text-stone-200">Present</span>
-                    </p>
-                </header>
-                <p>
-                    I came back as CTO and am now the company's only technology employee. I own every part of technical operations, from daily support and systems administration to vendor and platform management, security, and full system design and build-out. I set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools that make every department more productive.
-                </p>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Connect the CRM, marketing automation, checkout, payment processors, support desk, and reporting database into one coordinated stack using API integration, workflow automation, SQL, and reporting.</li>
-                    <li>Built an AI teammate for the tech department that handles a request end to end. It takes in the request, researches live systems, writes a scope and plan for approval, builds the automation, checks the result, and records every change in version control and the project tracker.
-                        <ul class="list-[circle] pl-6">
-                            <li>Specialist sub-agents handle scoping, automation building, data analysis, and QA testing.</li>
-                            <li>Strict guardrails apply: credentials stay in a secured vault, and anything risky needs human sign-off.</li>
-                            <li>Turns screen recordings into standard operating procedures, transcribed on company hardware, and points out what could be automated.</li>
+            <ol class="mt-8 space-y-12">
+                {{-- Current role --}}
+                <li class="grid gap-2 md:grid-cols-[12rem_1fr] md:gap-8">
+                    <p class="text-sm text-stone-500">Apr 2026 – Present</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Chief Technology Officer · Clever Investor</h3>
+                        <p class="mt-2 text-stone-600 dark:text-stone-400">I'm the company's only technology employee. I own all of it: daily support, systems administration, vendors and platforms, security, and full system design and build-out.</p>
+                        <ul class="mt-4 list-disc space-y-2 pl-5 text-stone-700 dark:text-stone-300">
+                            <li>Set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools for every department.</li>
+                            <li>Built an AI teammate for the tech department. It takes a request through research, scoping, approval, build and testing. Specialist sub-agents handle scoping, automation, data analysis and QA, and anything risky needs a human sign-off.</li>
+                            <li>Built CLVR Controller, a registry of every system, workflow, script and connection, with stack-wide health checks and a knowledge service that answers questions like "what breaks if we change this?"</li>
+                            <li>Turned screen recordings into standard operating procedures, transcribed on company hardware, with suggestions for what to automate next.</li>
                         </ul>
-                    </li>
-                    <li>Built CLVR Controller, a framework on top of the agent. It keeps a registry of every system, workflow, script, and connection in the company, runs health checks across the whole stack, and adds a knowledge service that answers questions like "where does this data live?" and "what breaks if we change this?"</li>
-                    <li>Current initiatives include:
-                        <ul class="list-[circle] pl-6">
-                            <li>Launching new product offers with automated subscriptions, fulfillment, and access control (Keap, n8n, CustomerHub, MCP).</li>
-                            <li>Rebuilding GoHighLevel sales pipelines for setters and closers, tightly integrated with Keap.</li>
-                            <li>A secure checkout and payment-link portal for the sales team (GoHighLevel, Keap, Authorize.Net, Whop, and other processors).</li>
-                            <li>A chargeback-response system that pulls evidence from across our platforms into one report, plus collections workflows for overdue payment plans (n8n, Zendesk, Zoom, Claude, local AI, RAG, MCP).</li>
-                            <li>Automated scheduling and invites for group coaching calls (Aevent, Zoom, Google Calendar, Keap, GoHighLevel).</li>
+                        <p class="mt-4 text-sm text-stone-500">Current initiatives: a checkout and payment-link portal, chargeback evidence and collections automation, GoHighLevel sales pipelines integrated with Keap, product launches with automated fulfillment and access control, and coaching-call scheduling.</p>
+                    </div>
+                </li>
+
+                <li class="grid gap-2 md:grid-cols-[12rem_1fr] md:gap-8">
+                    <p class="text-sm text-stone-500">Oct 2025 – Apr 2026</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Data Engineer · Coxreels</h3>
+                        <p class="mt-2 text-stone-600 dark:text-stone-400">Built tools and integrations for a manufacturer on MSSQL, MS Access and Syspro ERP's SOAP API.</p>
+                        <ul class="mt-4 list-disc space-y-2 pl-5 text-stone-700 dark:text-stone-300">
+                            <li>Rebuilt receiving with QR and barcode scanning straight into Syspro, including automatic stock-location and QC routing and BarTender label printing.</li>
+                            <li>Built a regulatory-compliance tool for assemblies and components that pulls chemical-composition data from Assent.</li>
+                            <li>Built a QC tracking tool and dashboard that flags suspect materials, calculates rework cost, issues RMAs, and produces weekly and monthly metrics.</li>
                         </ul>
-                    </li>
-                </ul>
-            </article>
-        </section>
+                    </div>
+                </li>
 
-        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Data Engineer</h3>
-                    <p class="text-sm text-stone-400"><strong>Coxreels</strong> - Tempe, AZ<br>
-                        <time class="text-xs text-stone-200" datetime="2025-10">October 2025</time> - <time
-                            class="text-xs text-stone-200" datetime="2026-04">April 2026</time>
-                    </p>
-                </header>
-                <p>
-                    Built MS Access and Syspro ERP tools and integrations on MSSQL and Syspro's SOAP API for a manufacturer.
-                </p>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Rebuilt and streamlined receiving with QR and barcode scanning tools that enter raw materials, parts, and products directly into Syspro. Shipments are categorized and labeled automatically for stock location, QC requirements, and inventory tracking, and BarTender prints receiving labels as each item is scanned.</li>
-                    <li>Built a regulatory-compliance utility that lets internal stakeholders check the compliance of any assembly, sub-assembly, or component. Engineering uses it to add new parts and materials to Syspro, with chemical-composition data pulled from Assent.</li>
-                    <li>Built a QC tracking tool and dashboard that follows each issue from identification through repair, rework, or material return. It flags suspect materials and assemblies from single-part defects, calculates rework cost, updates production-line instructions, issues RMAs, and generates weekly and monthly QC metrics.</li>
-                </ul>
-            </article>
-        </section>
+                <li class="grid gap-2 md:grid-cols-[12rem_1fr] md:gap-8">
+                    <p class="text-sm text-stone-500">Aug 2015 – Apr 2025</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Chief Technology Officer · Clever Investor</h3>
+                        <p class="mt-2 text-stone-600 dark:text-stone-400">I worked my way up from Customer Service Rep through Technical Support, Senior Technical Support Specialist and Senior IT Agent to CTO. I led the development and IT teams and owned everything from software architecture to the physical network.</p>
+                        <ul class="mt-4 list-disc space-y-2 pl-5 text-stone-700 dark:text-stone-300">
+                            <li>Built a full-stack event management platform that saved more than $7,000 per event and cut venue check-in by 90+ minutes per 1,000 attendees.</li>
+                            <li>Brought all outside IT and software development work in-house, saving $6,800 a month.</li>
+                            <li>Built automated fulfillment for 200+ physical and digital products, and marketing and list-hygiene flows for 80,000+ contacts a day.</li>
+                            <li>Designed and deployed secure REST APIs, CI/CD pipelines, and integrations across Salesforce, Keap, HubSpot, GoHighLevel and Maropost.</li>
+                            <li>Ran IT across multiple locations, including servers, VoIP, cabling, building security and two office moves with zero downtime.</li>
+                        </ul>
+                    </div>
+                </li>
 
-        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Chief Technology Officer</h3>
-                    <p class="text-sm text-stone-400"><strong>Clever Investor</strong> - Tempe, AZ<br>
-                        <time class="text-xs text-stone-200" datetime="2015-08">August 2015</time> - <time
-                            class="text-xs text-stone-200" datetime="2025-04">April 2025</time>
-                    </p>
-                </header>
-                <p>
-                    I directed the company's entire technology ecosystem, from software architecture and hands-on development to physical infrastructure, including data-center design, network operations, and office relocations. I was the technical leader bridging all departments, and I personally coded object-oriented solutions, utilities, and integrations.
-                </p>
-                <p class="mt-2 text-sm text-stone-400">
-                    I advanced from Customer Service Rep to Technical Support, Senior Technical Support Specialist, Senior IT Agent, and then Chief Technology Officer.
-                </p>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Developed a full-stack event management platform, saving over $7,000 per event and accelerating venue ingress by more than 90 minutes per 1,000 attendees.</li>
-                    <li>Architected automated fulfillment pipelines for over 200 unique physical and digital products, streamlining the entire sales-to-delivery process.</li>
-                    <li>Insourced all third-party IT and software development roles, saving the company $6,800 per month in contractor fees.</li>
-                    <li>Engineered automated marketing and list-hygiene flows to manage engagement for over 80,000 daily contacts, significantly improving data quality and campaign performance.</li>
-                    <li>Automated daily administrative functions, reducing monthly energy and labor costs by over $400.</li>
-                    <li>Executed two end-to-end office relocations with zero downtime or loss of productivity.</li>
-                    <li>Designed and deployed secure, scalable REST APIs and CI/CD pipelines.</li>
-                    <li>Managed all aspects of IT infrastructure across multiple locations, from structured cabling and
-                        VoIP systems, to servers, CRMs, asset management, and building security.</li>
-                    <li>Led development and support teams, collaborating with other departments to identify bottlenecks
-                        and deploy automated solutions that increased efficiency and ROI.
-                    </li>
-                    <li>Oversaw technical compliance, documentation, and system interoperability across departments.                    </li>
-                    <li>Administered and customized CRM systems (Salesforce, Keap, GoHighLevel, HubSpot, Maropost),
-                        integrated third-party APIs, and executed high-volume marketing automations.
-                    </li>
-                    <li>Designed and coded custom utilities, integrations, and browser extensions to streamline employee
-                        workflows.
-                    </li>
-                </ul>
-            </article>
-        </section>
+                <li class="grid gap-2 md:grid-cols-[12rem_1fr] md:gap-8">
+                    <p class="text-sm text-stone-500">2001 – 2015</p>
+                    <div>
+                        <h3 class="text-lg font-semibold text-stone-900 dark:text-white">Earlier career · Network &amp; telecom field engineering</h3>
+                        <ul class="mt-4 space-y-2 text-stone-700 dark:text-stone-300">
+                            <li><span class="font-medium">Network Specialist, Black Box Network Services</span> <span class="text-stone-500">(2015)</span>: built and repaired fiber and copper networks and network gear in Intel and Motorola cleanroom data centers, and project-managed the install team.</li>
+                            <li><span class="font-medium">Installation &amp; Repair Technician, Cox Communications</span> <span class="text-stone-500">(2008–2015)</span>: installed and troubleshot residential and business video and data services on an HFC network.</li>
+                            <li><span class="font-medium">Telecommunications Technician, AT&amp;T</span> <span class="text-stone-500">(2001–2008)</span>: maintained T1, ISDN, MPLS, DSL and fiber circuits from the central office to the customer, including in cleared secure facilities.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
 
-        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Network Specialist</h3>
-                    <p class="text-sm text-stone-400"><strong>Black Box Network Services</strong> - Chandler, AZ<br>
-                        <time class="text-xs text-stone-200" datetime="2015-01">January 2015</time> - <time
-                            class="text-xs text-stone-200" datetime="2015-08">August 2015</time>
-                    </p>
-                </header>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Installed and maintained Ethernet, coax, and fiber optic cabling in semiconductor environments
-                        (Intel & Motorola).</li>
-                    <li>Configured and tested switches, routers, and wireless access points in cleanroom data centers.
-                    </li>
-                    <li>Resolved network performance issues across critical systems in high-security facilities.</li>
-                </ul>
-            </article>
-        </section>
+    {{-- FEATURED WORK --}}
+    <section id="work" class="scroll-mt-16 mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <div class="flex items-baseline justify-between gap-4">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">Independent projects · Handles Tech LLC</h2>
+            <a href="{{ route('projects') }}" class="text-sm font-medium text-stone-700 hover:text-red-600 dark:text-stone-300">All projects →</a>
+        </div>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+            @foreach ([
+                ['Self-hosted LLM platform', 'A LiteLLM gateway that routes several apps between local GPU models and cloud models, with RAG over my technical docs and an evaluation harness that scores models before I promote them.'],
+                ['Infrastructure & security lab', 'A Proxmox and TrueNAS ZFS environment with OpenBao secrets, nightly Trivy CVE scanning, a self-hosted mail server with replication, and hands-on incident response.'],
+                ['AI Resume Builder', 'A demo AI job coach that turns a candidate\'s background and a pasted job description into a tailored resume and cover letter that pass applicant tracking systems. Built on Laravel, n8n and Gemini.'],
+            ] as [$heading, $body])
+                <article class="rounded-xl border border-stone-200 bg-white p-6 dark:border-stone-800 dark:bg-stone-900">
+                    <h3 class="font-semibold text-stone-900 dark:text-white">{{ $heading }}</h3>
+                    <p class="mt-2 text-stone-600 dark:text-stone-400">{{ $body }}</p>
+                </article>
+            @endforeach
+        </div>
+    </section>
 
-        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Installation & Repair Technician</h3>
-                    <p class="text-sm text-stone-400"><strong>Cox Communications</strong> - Tempe, AZ<br>
-                        <time class="text-xs text-stone-200" datetime="2008-04">April 2008</time> - <time
-                            class="text-xs text-stone-200" datetime="2015-01">January 2015</time>
-                    </p>
-                </header>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Installed and repaired residential and business video/data services in a HFC environment.</li>
-                    <li>Developed deep knowledge of IP-based systems and networking through training and real-world
-                        experience.</li>
-                    <li>Utilized advanced NOC toolset for monitoring and troubleshooting high availability data networks
-                    </li>
-                </ul>
-            </article>
-        </section>
+    {{-- SKILLS --}}
+    <section id="skills" class="scroll-mt-16 border-y border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+        <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">Core skills</h2>
+            <div class="mt-8 grid gap-8 sm:grid-cols-2">
+                @foreach ($skills as $group => $items)
+                    <div>
+                        <h3 class="font-semibold text-stone-900 dark:text-white">{{ $group }}</h3>
+                        <ul class="mt-3 flex flex-wrap gap-2">
+                            @foreach ($items as $item)
+                                <li class="rounded-full bg-stone-100 px-3 py-1 text-sm text-stone-700 dark:bg-stone-800 dark:text-stone-300">{{ $item }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endforeach
+            </div>
 
-        <section class="max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
-            <article>
-                <header>
-                    <h3 class="text-lg">Telecommunications Technician</h3>
-                    <p class="text-sm text-stone-400"><strong>AT&T</strong> - Multiple Locations<br>
-                        <time class="text-xs text-stone-200" datetime="2001">2001</time> - <time
-                            class="text-xs text-stone-200" datetime="2008">2008</time>
-                    </p>
-                </header>
-                <ul class="mt-4 list-disc pl-6 text-base">
-                    <li>Maintained voice and data services for business and residential clients including voice, T1,
-                        ISDN, MPLS, Centrex, DSL, and Fiber circuits.</li>
-                    <li>Worked end-to-end from central office hardware to customer endpoint integration.</li>
-                    <li>Performed maintenance and repair on Lightspan, DSLAM, and Pair gain systems in both above ground
-                        cabinets and CEVs</li>
-                    <li>Worked in a broad range of secure facilities requiring various levels of government clearance
-                    </li>
-                </ul>
-            </article>
-        </section>
+            @php($platformCount = collect($platforms)->flatten()->count())
+            <details class="group mt-10 rounded-xl border border-stone-200 p-6 dark:border-stone-800">
+                <summary class="cursor-pointer list-none font-medium text-stone-900 dark:text-white">
+                    <span class="mr-2 inline-block transition-transform group-open:rotate-90">›</span>
+                    Platforms and APIs I've integrated ({{ $platformCount }})
+                </summary>
+                <dl class="mt-6 grid gap-4 text-sm sm:grid-cols-2">
+                    @foreach ($platforms as $group => $items)
+                        <div>
+                            <dt class="font-medium text-stone-900 dark:text-white">{{ $group }}</dt>
+                            <dd class="mt-1 text-stone-600 dark:text-stone-400">{{ implode(' · ', $items) }}</dd>
+                        </div>
+                    @endforeach
+                </dl>
+            </details>
+        </div>
+    </section>
 
-    </x-default-section>
-
-    <!-- EDUCATION SECTION -->
-
-    <x-full-page-section id="education" h1="Education" class="bg-stone-950 pt-8" :quote='["Strive not to be a success, but rather to be of value.","Albert Einstein"]'>
-        <article class="max-w-screen-lg mx-auto px-4 my-8 items-start items-stretch text-lg flex flex-col md:flex-row gap-6">
-            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
-                <h3 class="text-lg">Purdue University - Indianapolis, IN</h3>
-                <p class="text-sm text-stone-400">Electronics Engineering Technology<br>
-                    <time class="text-xs text-stone-200" datetime="1997">1997</time> - <time class="text-xs text-stone-200" datetime="1998">1998</time>
-                </p>
-            </section>
-            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
-                <h3 class="text-lg">Purdue University North Central - Westville, IN</h3>
-                <p class="text-sm text-stone-400">Electronics Engineering Technology<br>
-                    <time class="text-xs text-stone-200" datetime="1996">1996</time> - <time class="text-xs text-stone-200" datetime="1997">1997</time>
-                </p>
-            </section>
-        </article>
-
-        <article class="max-w-screen-lg mx-auto px-4 my-8 items-start items-stretch text-lg flex flex-col md:flex-row gap-6">
-            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
-                <h3 class="text-lg">A.K. Smith Career Center - Michigan City, IN</h3>
-                <p class="text-sm text-stone-400">Electronics Engineering Technology - Vocational Training<br>
-                    <time class="text-xs text-stone-200" datetime="1992">1992</time> - <time class="text-xs text-stone-200" datetime="1996">1996</time>
-                </p>
-            </section>
-            <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
-                <h3 class="text-lg">A.K. Smith Career Center - Michigan City, IN</h3>
-                <p class="text-sm text-stone-400">Residential Electrical - Vocational Training<br>
-                    <time class="text-xs text-stone-200" datetime="1992">1992</time> - <time class="text-xs text-stone-200" datetime="1993">1993</time>
-                </p>
-            </section>
-        </article>
-
-    </x-full-page-section>
-
-</x-layout>
+    {{-- EDUCATION + CONTACT --}}
+    <section class="mx-auto grid max-w-5xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2">
+        <div id="education" class="scroll-mt-20">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">Education</h2>
+            <ul class="mt-6 space-y-4 text-stone-700 dark:text-stone-300">
+                <li><span class="font-medium">Purdue University</span>: Electronics Engineering Technology coursework <span class="text-stone-500">(1996–1998)</span></li>
+                <li><span class="font-medium">A.K. Smith Career Center</span>: Electronics Engineering Technology and Residential Electrical vocational training <span class="text-stone-500">(1992–1996)</span></li>
+            </ul>
+        </div>
+        <div id="contact" class="scroll-mt-20">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-red-600">Contact</h2>
+            <p class="mt-6 text-stone-700 dark:text-stone-300">I'm happy to talk about automation, AI or systems work.</p>
+            <ul class="mt-4 space-y-2">
+                <li><a href="mailto:jason@handles.tech" class="font-medium text-stone-900 underline decoration-red-600 underline-offset-4 hover:text-red-600 dark:text-white">jason@handles.tech</a></li>
+                <li><a href="tel:+14804423138" class="text-stone-700 hover:text-red-600 dark:text-stone-300">(480) 442-3138</a></li>
+                <li><a href="{{ config('services.linkedin.url') }}" target="_blank" rel="noopener" class="text-stone-700 hover:text-red-600 dark:text-stone-300">LinkedIn</a></li>
+            </ul>
+        </div>
+    </section>
+</x-site>
