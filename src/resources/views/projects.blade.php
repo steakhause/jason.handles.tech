@@ -15,10 +15,10 @@
                             Welcome!
                         </p>
                         <p class="text-stone-400">
-                            Thank you for taking the time to review site.
+                            Thank you for taking the time to review my site.
                         </p>
                         <p class="text-stone-400">
-                            Here you will find a growing series of videos describing and demonstrating various personal projects.
+                            Here you'll find demos of my personal projects and an overview of the infrastructure I run through Handles Tech LLC.
                         </p>
                     </div>
                 </div>
@@ -61,6 +61,26 @@
                             </figure>
 
                         </div>
+                    </div>
+                </div>
+
+                <!-- Handles Tech LLC: Independent Projects -->
+                <div class="border-t border-stone-700">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <h3 class="text-lg font-semibold text-stone-200">
+                            Handles Tech LLC: Independent Projects
+                        </h3>
+                        <p class="text-stone-400">
+                            A self-hosted lab that I design, build, and run myself. I treat it as production, and it's where I prove out tools before I use them at work.
+                        </p>
+                        <ul class="list-disc pl-6 space-y-2 text-stone-400">
+                            <li><strong class="text-stone-300">LLM gateway:</strong> a LiteLLM gateway serving several apps, routing between local GPU models and cloud models with fallback and per-client keys.</li>
+                            <li><strong class="text-stone-300">RAG and evaluation:</strong> retrieval over my technical documentation, plus a model-evaluation harness that scores models before they're promoted.</li>
+                            <li><strong class="text-stone-300">AI agents:</strong> an infrastructure triage agent that assesses alerts and reports on security, a personal assistant agent, and local voice tools (speech-to-text and Piper text-to-speech).</li>
+                            <li><strong class="text-stone-300">Virtualization and storage:</strong> a Proxmox cluster with TrueNAS ZFS storage, including capacity planning, deduplication, and automated media transcoding.</li>
+                            <li><strong class="text-stone-300">Security:</strong> OpenBao secrets management, nightly Trivy container CVE scanning with alerting, firewall segmentation, and hands-on incident response.</li>
+                            <li><strong class="text-stone-300">Services and automation:</strong> a self-hosted mail server with replication, Nextcloud, reverse proxy with TLS, n8n workflows, and Home Assistant with Frigate NVR.</li>
+                        </ul>
                     </div>
                 </div>
 
