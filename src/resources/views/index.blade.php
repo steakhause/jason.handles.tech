@@ -15,14 +15,20 @@
     </x-full-page-section>
 
     <!--ABOUT ME SECTION-->
-    <x-default-section id="about-me" h1="JASON RYSZKA" h2="Full Stack Developer"
+    <x-default-section id="about-me" h1="JASON RYSZKA" h2="Technology Leader | Automation & AI Systems Engineer"
         :quote="['Great things are done by a series of small things brought together.', 'Vincent Van Gogh']">
 
         <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-start">
             <section class="flex-2 block">
                 <h2 class="text-red-500 block text-2xl text-center">About Me</h2>
                 <p>
-                    As a seasoned professional, I design and build sophisticated Object-Oriented web solutions with a primary focus on automation and custom API integration. My passion lies in creating tools that solve complex business challenges, enhance efficiency, and seamlessly bridge technology gaps. My approach to software development is uniquely informed by extensive, hands-on work across a wide array of technology fields, including server administration, data center construction, network engineering, enterprise hardware, IoT, and even electrical engineering. This comprehensive, foundational knowledge ensures that the solutions I build are not only well-coded but also practical, performant, and perfectly aligned with the underlying infrastructure.
+                    I'm a technology leader who still builds the systems himself. For more than ten years I've run technology for a growing education company. Today I'm its Chief Technology Officer and its only technology employee, responsible for everything from daily support to system architecture, integrations and new platform builds.
+                </p>
+                <p class="mt-4">
+                    My work centers on connecting business systems through APIs and workflow automation, protecting revenue, and putting AI to work as a real teammate. That includes agents that research, plan, build and test automations under human sign-off. I pick the simplest solution the team can maintain, inside tools it already uses.
+                </p>
+                <p class="mt-4">
+                    My background runs from the physical layer up. I started in telecom and network field work and moved into data-center builds, server administration, ERP and SQL data engineering, and full-stack development. That range lets me design solutions that fit the infrastructure underneath them.
                 </p>
             </section>
             
@@ -46,20 +52,6 @@
                                 <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 24h5V7H0v17zm7.5-17h4.5v2.25h.06c.63-1.2 2.17-2.25 4.44-2.25 4.76 0 5.63 3.13 5.63 7.2V24h-5v-7.5c0-1.8-.03-4.12-2.5-4.12s-2.88 1.95-2.88 4v7.62H7.5V7z"/>
                             </svg>
                         </a>
-
-                        <!-- Zoom -->
-                        <a href="{{ config('services.zoom.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path d="M17 10.5V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h13c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
-                            </svg>
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="{{ config('services.github.url') }}" target="_blank" class="text-stone-500 hover:text-stone-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path d="M12 0C5.37 0 0 5.4 0 12.07c0 5.33 3.44 9.85 8.2 11.44.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2.01-3.34.73-4.04-1.63-4.04-1.63-.55-1.42-1.34-1.8-1.34-1.8-1.1-.76.08-.75.08-.75 1.2.09 1.84 1.26 1.84 1.26 1.08 1.87 2.83 1.33 3.52 1.02.11-.79.42-1.33.76-1.63-2.67-.31-5.47-1.36-5.47-6.05 0-1.34.47-2.44 1.24-3.3-.12-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.2 11.2 0 0 1 3-.41c1.02.01 2.05.14 3 .41 2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.24 2.94.12 3.25.77.86 1.24 1.96 1.24 3.3 0 4.7-2.8 5.73-5.48 6.04.43.37.82 1.1.82 2.23 0 1.61-.01 2.91-.01 3.3 0 .32.22.7.83.58C20.57 21.92 24 17.4 24 12.07 24 5.4 18.63 0 12 0z"/>
-                            </svg>
-                        </a>
                     </li>
                 </ul>
             </aside>
@@ -69,7 +61,7 @@
     </x-default-section>
 
     <!--SKILLS SECTION-->
-    <x-default-section id="experience" class="bg-stone-950" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
+    <x-default-section id="skills" class="bg-stone-950" h1="Skills & Experience" :quote='["Life without knowledge is death in disguise", "Talib Kweli"]'>
 
         @foreach (array_chunk($skills, 3) as $chunk)
             <article class="flex flex-col md:flex-row gap-6 max-w-screen-lg mx-auto px-4 my-8 items-stretch text-2xl">
@@ -83,7 +75,61 @@
 
     <!--EMPLOYMENT HISTORY SECTION-->
 
-    <x-default-section id="employment" h1="Employment History" :quote='["The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.","Hellen Keller"]'>
+    <x-default-section id="employment" h1="Employment History" :quote='["The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.","Helen Keller"]'>
+        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
+            <article>
+                <header>
+                    <h3 class="text-lg">Chief Technology Officer</h3>
+                    <p class="text-sm text-stone-400"><strong>Clever Investor</strong> - Tempe, AZ<br>
+                        <time class="text-xs text-stone-200" datetime="2026-04">April 2026</time> - <span class="text-xs text-stone-200">Present</span>
+                    </p>
+                </header>
+                <p>
+                    I came back as CTO and am now the company's only technology employee. I own every part of technical operations, from daily support and systems administration to vendor and platform management, security, and full system design and build-out. I set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools that make every department more productive.
+                </p>
+                <ul class="mt-4 list-disc pl-6 text-base">
+                    <li>Connect the CRM, marketing automation, checkout, payment processors, support desk, and reporting database into one coordinated stack using API integration, workflow automation, SQL, and reporting.</li>
+                    <li>Built an AI teammate for the tech department that handles a request end to end. It takes in the request, researches live systems, writes a scope and plan for approval, builds the automation, checks the result, and records every change in version control and the project tracker.
+                        <ul class="list-[circle] pl-6">
+                            <li>Specialist sub-agents handle scoping, automation building, data analysis, and QA testing.</li>
+                            <li>Strict guardrails apply: credentials stay in a secured vault, and anything risky needs human sign-off.</li>
+                            <li>Turns screen recordings into standard operating procedures, transcribed on company hardware, and points out what could be automated.</li>
+                        </ul>
+                    </li>
+                    <li>Built CLVR Controller, a framework on top of the agent. It keeps a registry of every system, workflow, script, and connection in the company, runs health checks across the whole stack, and adds a knowledge service that answers questions like "where does this data live?" and "what breaks if we change this?"</li>
+                    <li>Current initiatives include:
+                        <ul class="list-[circle] pl-6">
+                            <li>Launching new product offers with automated subscriptions, fulfillment, and access control (Keap, n8n, CustomerHub, MCP).</li>
+                            <li>Rebuilding GoHighLevel sales pipelines for setters and closers, tightly integrated with Keap.</li>
+                            <li>A secure checkout and payment-link portal for the sales team (GoHighLevel, Keap, Authorize.Net, Whop, and other processors).</li>
+                            <li>A chargeback-response system that pulls evidence from across our platforms into one report, plus collections workflows for overdue payment plans (n8n, Zendesk, Zoom, Claude, local AI, RAG, MCP).</li>
+                            <li>Automated scheduling and invites for group coaching calls (Aevent, Zoom, Google Calendar, Keap, GoHighLevel).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
+            <article>
+                <header>
+                    <h3 class="text-lg">Data Engineer</h3>
+                    <p class="text-sm text-stone-400"><strong>Coxreels</strong> - Tempe, AZ<br>
+                        <time class="text-xs text-stone-200" datetime="2025-10">October 2025</time> - <time
+                            class="text-xs text-stone-200" datetime="2026-04">April 2026</time>
+                    </p>
+                </header>
+                <p>
+                    Built MS Access and Syspro ERP tools and integrations on MSSQL and Syspro's SOAP API for a manufacturer.
+                </p>
+                <ul class="mt-4 list-disc pl-6 text-base">
+                    <li>Rebuilt and streamlined receiving with QR and barcode scanning tools that enter raw materials, parts, and products directly into Syspro. Shipments are categorized and labeled automatically for stock location, QC requirements, and inventory tracking, and BarTender prints receiving labels as each item is scanned.</li>
+                    <li>Built a regulatory-compliance utility that lets internal stakeholders check the compliance of any assembly, sub-assembly, or component. Engineering uses it to add new parts and materials to Syspro, with chemical-composition data pulled from Assent.</li>
+                    <li>Built a QC tracking tool and dashboard that follows each issue from identification through repair, rework, or material return. It flags suspect materials and assemblies from single-part defects, calculates rework cost, updates production-line instructions, issues RMAs, and generates weekly and monthly QC metrics.</li>
+                </ul>
+            </article>
+        </section>
+
         <section class=" max-w-screen-lg mx-auto px-4 my-8 items-start text-lg">
             <article>
                 <header>
@@ -94,8 +140,11 @@
                     </p>
                 </header>
                 <p>
-                    As CTO, I Directed the company's entire technology ecosystem, from software architecture and hands-on development to physical infrastructure, including data-center design, network operations, and office relocations. Served as the key technical leader bridging all departments, personally coding object-oriented solutions, utilities, and integrations to deliver secure, scalable, and cost-effective results.
-                </p>    
+                    I directed the company's entire technology ecosystem, from software architecture and hands-on development to physical infrastructure, including data-center design, network operations, and office relocations. I was the technical leader bridging all departments, and I personally coded object-oriented solutions, utilities, and integrations.
+                </p>
+                <p class="mt-2 text-sm text-stone-400">
+                    I advanced from Customer Service Rep to Technical Support, Senior Technical Support Specialist, Senior IT Agent, and then Chief Technology Officer.
+                </p>
                 <ul class="mt-4 list-disc pl-6 text-base">
                     <li>Developed a full-stack event management platform, saving over $7,000 per event and accelerating venue ingress by more than 90 minutes per 1,000 attendees.</li>
                     <li>Architected automated fulfillment pipelines for over 200 unique physical and digital products, streamlining the entire sales-to-delivery process.</li>
@@ -124,9 +173,9 @@
             <article>
                 <header>
                     <h3 class="text-lg">Network Specialist</h3>
-                    <p class="text-sm text-stone-400"><strong>Black Box Networks</strong> - Chandler, AZ<br>
+                    <p class="text-sm text-stone-400"><strong>Black Box Network Services</strong> - Chandler, AZ<br>
                         <time class="text-xs text-stone-200" datetime="2015-01">January 2015</time> - <time
-                            class="text-xs text-stone-200" datetime="2025-08">August 2015</time>
+                            class="text-xs text-stone-200" datetime="2015-08">August 2015</time>
                     </p>
                 </header>
                 <ul class="mt-4 list-disc pl-6 text-base">
@@ -163,7 +212,7 @@
                 <header>
                     <h3 class="text-lg">Telecommunications Technician</h3>
                     <p class="text-sm text-stone-400"><strong>AT&T</strong> - Multiple Locations<br>
-                        <time class="text-xs text-stone-200" datetime="2006">2006</time> - <time
+                        <time class="text-xs text-stone-200" datetime="2001">2001</time> - <time
                             class="text-xs text-stone-200" datetime="2008">2008</time>
                     </p>
                 </header>
@@ -208,7 +257,7 @@
             </section>
             <section class="flex-1 md:min-h-[80px] p-6 rounded-xl bg-stone-900 shadow-md">
                 <h3 class="text-lg">A.K. Smith Career Center - Michigan City, IN</h3>
-                <p class="text-sm text-stone-400">Residental Electrical - Vocational Training<br>
+                <p class="text-sm text-stone-400">Residential Electrical - Vocational Training<br>
                     <time class="text-xs text-stone-200" datetime="1992">1992</time> - <time class="text-xs text-stone-200" datetime="1993">1993</time>
                 </p>
             </section>

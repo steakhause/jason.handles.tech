@@ -734,24 +734,29 @@
             widows: 2;
             text-align: left
         }
+
+        @media print {
+            html {
+                background: #ffffff
+            }
+        }
     </style>
 </head>
 
 <body class="c31 doc-content">
     <h2 class="c9 c35" id="h.5x0d5h95i329"><span class="c32 c36">Jason Ryszka</span></h2>
-    <p class="c0 c9 subtitle" id="h.sbziogryzzql"><span class="c37">Full Stack Developer | IT &amp; Network
-            Specialist</span></p>
+    <p class="c0 c9 subtitle" id="h.sbziogryzzql"><span class="c37">Technology Leader | Automation &amp; AI Systems Engineer</span></p>
     <p class="c0 c9"><span class="c20 c21"><a class="c30"
                 href="mailto:jason@handles.tech">jason@handles.tech</a></span><span class="c20">&nbsp;</span><span
             class="c10 c33">| (480) 442-3138</span></p>
     <p class="c0 c9"><span class="c20 c21"><a class="c30"
                 href="https://www.google.com/url?q=https://jason.handles.tech&amp;sa=D&amp;source=editors&amp;ust=1755200695964807&amp;usg=AOvVaw0orq-oVaE1fmnVy_eAKzkp">https://Jason.Handles.Tech</a></span>
     </p>
-    <h1 class="c9 c18" id="h.inx73jfg7qti"><span class="c2 c6">Professional Summary</span><span class="c11 c10"><br>Full
-            Stack Developer with extensive hands-on experience across IT, software development, and network engineering.
-            Proven track record of designing scalable, secure, and efficient technology solutions that reduce costs,
-            automate operations, and increase business agility. Adept in team leadership, API development,
-            infrastructure management, and automation.</span></h1>
+    <h1 class="c9 c18" id="h.inx73jfg7qti"><span class="c2 c6">Professional Summary</span><span class="c11 c10"><br>Technology leader with more than ten years running technology for a growing
+            education company, now its CTO and only technology employee. I own everything from daily support to system
+            architecture. I connect CRM, payment, support, and reporting systems through APIs and workflow automation,
+            and I build AI agents that work as real teammates under human sign-off. My background runs from telecom and
+            network field work through ERP and SQL data engineering to full-stack development.</span></h1>
     <h1 class="c9 c29" id="h.ekedb43bqnkb"><span class="c10 c2 c6">Key Achievements</span></h1>
     <ul class="c5 lst-kix_j0jhv38vzqbt-0 start">
         <li class="c15 c9 li-bullet-0"><span class="c11 c10">Developed full stack event management platform, saving over
@@ -766,53 +771,65 @@
                 engagement for 80,000+ daily contacts.</span></li>
         <li class="c15 c9 li-bullet-0"><span class="c11 c10">Executed two office relocations with zero downtime or
                 productivity loss.</span></li>
+        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Built an AI teammate with specialist sub-agents that scopes,
+                builds, tests, and documents automations end to end under human sign-off.</span></li>
+        <li class="c15 c9 li-bullet-0"><span class="c11 c10">Rebuilt manufacturing receiving with QR and barcode scanning
+                straight into Syspro ERP, with automatic stock-location, QC, and label printing.</span></li>
     </ul>
     <h1 class="c29 c9" id="h.d3z10zhiarma"><span class="c10 c2 c6">SKILLS</span></h1>
     <ul class="c5 lst-kix_j0jhv38vzqbt-0">
-        <li class="c7 li-bullet-0"><span class="c2">Languages: </span><span class="c11 c10">PHP (OOP), JavaScript (OOP),
-                HTML, CSS, Bash, SQL, JSON, XML, YAML</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Frameworks/Libraries:</span><span class="c11 c10">&nbsp;Laravel,
-                WordPress, jQuery, TailwindCSS, Bootstrap</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Web &amp; API Tech: </span><span class="c11 c10">REST, SOAP,
-                XML-RPC, WebSockets, SSO, 2FA, OAuth, JWT, Basic Auth</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Databases: </span><span class="c11 c10">MySQL, SQLite, PostgreSQL,
-                MongoDB, Redis</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Networking &amp; Systems: </span><span class="c11 c10">Linux (RHEL,
-                CLI), DNS (Bind9), Apache, Nginx, Traefik, NPM, TCP/IP, Reverse Proxies</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">DevOps &amp; Tools:</span><span class="c11 c10">&nbsp;Docker, Git,
-                SVN, Proxmox, VirtualBox, AWS, CI/CD, AI MCPs</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Monitoring &amp; Security:</span><span
-                class="c11 c10">&nbsp;SolarWinds, Uptime Kuma, NetData, custom Bash scripts, OWASP practices, PCI
-                compliance</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">CRM &amp; Automation:</span><span class="c11 c10">&nbsp;Salesforce,
-                Keap, Maropost, HubSpot, Go High Level, MarketingCloud, Node-RED, N8N, Zapier, IFTTT, PlusThis</span>
-        </li>
-        <li class="c7 li-bullet-0"><span class="c2">Business &amp; Ops: </span><span class="c11 c10">SaaS lifecycle, KPI
-                tracking, Interdepartmental liaison, TeamWork, Klaviyo</span></li>
-        <li class="c7 li-bullet-0"><span class="c2">Analytics &amp; Reporting: </span><span class="c11 c10">Google
-                Analytics, GTM, Hyros, WickedReports, Facebook Ads, Tune, Periscope, VWO</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Languages: </span><span class="c11 c10">PHP (OOP), JavaScript (OOP), SQL / T-SQL, VBA, HTML, CSS, Bash, JSON, XML, YAML</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Frameworks/Libraries: </span><span class="c11 c10">Laravel, WordPress, TailwindCSS, Vite, jQuery, Bootstrap</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Web &amp; API Tech: </span><span class="c11 c10">REST, SOAP, XML-RPC, WebSockets, Webhooks, SSO, 2FA, OAuth2, JWT</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Databases: </span><span class="c11 c10">Microsoft SQL Server, MySQL, PostgreSQL, SQLite, MS Access, MongoDB, Redis</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">AI &amp; LLM: </span><span class="c11 c10">Claude / Claude Code, OpenAI, Gemini, local LLMs, LiteLLM, AI agents, MCP servers, RAG, model evaluation</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Networking &amp; Systems: </span><span class="c11 c10">Linux (RHEL, CLI), Proxmox, TrueNAS, DNS (Bind9), Apache, Nginx, Traefik, NPM, TCP/IP, UniFi, Omada</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">DevOps &amp; Tools: </span><span class="c11 c10">Docker, Git, GitLab, GitHub Actions, SVN, AWS, DigitalOcean, CI/CD</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Monitoring &amp; Security: </span><span class="c11 c10">OpenBao, Trivy, Sucuri WAF, Cloudflare, Uptime Kuma, NetData, SolarWinds, OWASP practices, PCI compliance</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">CRM &amp; Automation: </span><span class="c11 c10">Keap, Salesforce (incl. Marketing Cloud), GoHighLevel, HubSpot, Maropost, Klaviyo, n8n, Node-RED, Zapier</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Payments &amp; Commerce: </span><span class="c11 c10">Stripe, Authorize.Net, Chase Paymentech, Whop, Sticky.io, CustomerHub, ShipStation</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Communications &amp; Events: </span><span class="c11 c10">Twilio, Vonage, BroadWorks XSI, Mailgun, Slack API, Zoom, Aevent, WebinarJam, OnceHub</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Operations &amp; ERP: </span><span class="c11 c10">Zendesk, Asana, Teamwork, BoldSign, Typeform, Syspro (SOAP API), BarTender</span></li>
+        <li class="c7 li-bullet-0"><span class="c2">Analytics &amp; Reporting: </span><span class="c11 c10">Google Analytics, GTM, Facebook Pixel, Hyros, Wicked Reports, Tune, Hotjar, Periscope</span></li>
     </ul>
     <h1 class="c9 c26" id="h.5sh58lh512k2"><span class="c2 c6">EXPERIENCE</span></h1>
-    <h2 class="c0 c9" id="h.mu43qcboozqe"><span class="c2 c13">Clever Investor, Tempe AZ</span><span class="c16">&nbsp;-
-            Chief Technology Officer</span></h2>
-    <p class="c9 c17"><span class="c14 c10">August 2015 - April 2025</span></p>
+    <h2 class="c27 c9"><span class="c2 c13">Clever Investor, Tempe AZ </span><span class="c16">- Chief Technology Officer</span></h2>
+    <p class="c17 c9"><span class="c14 c10">April 2026 - Present</span></p>
     <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
-        <li class="c3 li-bullet-0"><span class="c11 c10">Lead and manage all technical aspects of product development
-                and lifecycle, ensuring accurate documentation and systems interoperability.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Designed, coded, and deployed secure, performant, and scalable
-                REST APIs for intra and extra company data access.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Leveraged Third-Party APIs to build code based solutions per
-                specific project requirements.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Managed IT and software development teams across multiple
-                concurrent projects.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Designed and implemented Sales, Marketing, and Business
-                automation solutions with a strong emphasis on maximizing ROI and optimizing business efficiency.</span>
-        </li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Enforced legal and compliance standards across technology and
-                marketing departments.</span></li>
-        <li class="c3 li-bullet-0"><span class="c11 c10">Administered all building infrastructure and IT assets of
-                remote and in person employees, including ticketing systems, VoIP, Building Security, Computer Support,
-                Remote Desktop, IP Cameras/NVR, Server Architecture, and Networking Equipment.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Sole technology employee, responsible for all technical operations: daily support, systems administration, vendor and platform management, security, and full system design and build-out.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Set the technology roadmap across three tracks: connecting business systems, protecting revenue, and building AI and automation tools that make every department more productive.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Connect the CRM, marketing automation, checkout, payment processors, support desk, and reporting database into one coordinated stack (Keap, GoHighLevel, CustomerHub, Zendesk, n8n, SQL).</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built an AI teammate that takes a request through research, scoping, approval, build, and testing, and records every change in version control and the project tracker. Specialist sub-agents handle scoping, building, data analysis, and QA. Credentials stay in a vault, and risky actions need human sign-off.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built CLVR Controller, a registry of every system, workflow, script, and connection, with stack-wide health checks and a knowledge service for impact and data-lineage questions.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Current initiatives include a secure checkout and payment-link portal, a chargeback-evidence and collections system, GoHighLevel sales pipelines integrated with Keap, and automated product fulfillment and access control.</span></li>
+    </ul>
+    <h2 class="c27 c9"><span class="c2 c13">Coxreels, Tempe AZ </span><span class="c16">- Data Engineer</span></h2>
+    <p class="c17 c9"><span class="c14 c10">October 2025 - April 2026</span></p>
+    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built MS Access and Syspro ERP tools and integrations on MSSQL and Syspro's SOAP API.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Rebuilt receiving with QR and barcode scanning that enters materials, parts, and products directly into Syspro. It categorizes each shipment for stock location, QC, and inventory tracking, and auto-prints BarTender labels.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built a regulatory-compliance utility for assemblies, sub-assemblies, and components, with new-part entry into Syspro and chemical-composition data pulled from Assent.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built a QC tracking tool and dashboard that covers each issue from identification through rework or return. It flags suspect materials, calculates rework cost, issues RMAs, and produces weekly and monthly QC metrics.</span></li>
+    </ul>
+    <h2 class="c27 c9"><span class="c2 c13">Clever Investor, Tempe AZ </span><span class="c16">- Chief Technology Officer</span></h2>
+    <p class="c17 c9"><span class="c14 c10">August 2015 - April 2025</span></p>
+    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
+        <li class="c3 li-bullet-0"><span class="c11 c10">Advanced from Customer Service Rep to Technical Support, Senior Technical Support Specialist, Senior IT Agent, and then CTO.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Led all technical aspects of product development and lifecycle, ensuring accurate documentation and systems interoperability.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built a full-stack event management platform that saved over $7,000 per event and cut venue ingress by 90+ minutes per 1,000 attendees.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Brought third-party IT and software development work in-house, saving $6,800 per month.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built automated fulfillment pipelines for 200+ physical and digital products, and marketing and list-hygiene flows for 80,000+ daily contacts.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Designed, coded, and deployed secure, scalable REST APIs and integrations with third-party APIs.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Managed IT and software development teams across multiple concurrent projects.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Enforced legal and compliance standards across technology and marketing.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Administered all building infrastructure and IT assets for remote and in-person staff: ticketing, VoIP, building security, IP cameras/NVR, servers, and networking. Ran two office relocations with zero downtime.</span></li>
+    </ul>
+    <h2 class="c27 c9"><span class="c2 c13">Handles Tech LLC </span><span class="c16">- Owner / Engineer (independent projects)</span></h2>
+    <p class="c17 c9"><span class="c14 c10">Ongoing</span></p>
+    <ul class="c5 lst-kix_dfan2ie4mj27-0 start">
+        <li class="c3 li-bullet-0"><span class="c11 c10">Run a self-hosted LiteLLM gateway that routes several apps between local GPU models and cloud models, plus RAG over technical docs and a model-evaluation harness.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Built AI agents for infrastructure triage and personal assistance, and local voice tools for speech-to-text and text-to-speech.</span></li>
+        <li class="c3 li-bullet-0"><span class="c11 c10">Operate a Proxmox and TrueNAS ZFS environment with OpenBao secrets management, nightly Trivy CVE scanning, a self-hosted mail server, n8n, and Home Assistant.</span></li>
     </ul>
     <h2 class="c9 c27" id="h.25ksbxwbal7a"><span class="c2 c13">Black Box Network Services, Chandler AZ </span><span
             class="c16">- Network Specialist</span></h2>
@@ -853,18 +870,18 @@
                 troubleshooting.</span></li>
     </ul>
     <h1 class="c9 c38" id="h.pwnp1k6vsbh1"><span class="c2 c6 c10">EDUCATION</span></h1>
-    <p class="c0"><span class="c8">Purdue University Indianapolis </span><span class="c1">97-98</span><span
+    <p class="c0"><span class="c8">Purdue University Indianapolis </span><span class="c1">1997 - 1998</span><span
             class="c8 c22">&nbsp;</span><span class="c1">Indianapolis, IN</span><span class="c8">&nbsp;</span><span
             class="c28 c32 c39">&nbsp;</span></p>
     <p class="c0"><span class="c4 c10">Electronics Engineering Technology</span></p>
     <p class="c0"><span class="c8">Purdue University North Central</span><span class="c28">&nbsp;</span><span
-            class="c1">96-96</span><span class="c28">&nbsp;</span><span class="c1 c32">Westville, IN</span></p>
+            class="c1">1996 - 1997</span><span class="c28">&nbsp;</span><span class="c1 c32">Westville, IN</span></p>
     <p class="c0"><span class="c4 c10">Electronics Engineering Technology</span></p>
-    <p class="c0"><span class="c8">A.K Smith Career Center </span><span class="c1 c32">92-96 Michigan City, IN</span>
+    <p class="c0"><span class="c8">A.K Smith Career Center </span><span class="c1 c32">1992 - 1996 Michigan City, IN</span>
     </p>
     <p class="c0"><span class="c4 c10">Three years specialized vocational training in Electronics Engineering Technology
         </span></p>
-    <p class="c0"><span class="c4">One year Vocational Residential Electrical`</span></p>
+    <p class="c0"><span class="c4">Residential Electrical, vocational training (1992 - 1993)</span></p>
     <p class="c0 c19"><span class="c11 c10"></span></p>
     <p class="c9 c19 c23"><span class="c10 c25"></span></p>
 </body>
